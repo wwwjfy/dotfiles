@@ -1,0 +1,19 @@
+[user]
+	name = Tony Wang
+	email = wwwjfy@gmail.com
+[alias]
+	co = checkout
+	st = status -sb
+	ci = commit -v
+	out = !"git fetch; git log origin/HEAD..master"
+	unpushed = log --branches --not --remotes
+[apply]
+	whitespace = fix
+[push]
+	default = upstream
+[core]
+	excludesfile = ~/.gitignore_global
+[log]
+	decorate = true
+[color]
+	ui = true
