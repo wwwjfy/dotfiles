@@ -1,27 +1,41 @@
-#!/bin/bash
+#!/bin/zsh
+
+function link_file() {
+    if [[ ! -a ".$1" ]]; then
+        ln -s dotfiles/$1 .$1
+    fi
+}
 
 set -e
 
 cd $HOME
 
 # self
-git clone git://github.com/wwwjfy/dotfiles.git
+if [[ ! -a "dotfiles" ]]; then
+    git clone git://github.com/wwwjfy/dotfiles.git
+fi
 
 # vim
-git clone git://github.com/wwwjfy/vimfiles.git .vim
-cd .vim
-git submodule init
-git submodule update
-cd $HOME
-ln -s .vim/vimrc .vimrc
+if [[ ! -a ".vim" ]]; then
+    git clone git://github.com/wwwjfy/vimfiles.git .vim
+    cd .vim
+    git submodule init
+    git submodule update
+    cd $HOME
+fi
+
+if [[ ! -a ".vimrc" ]]; then
+    ln -s .vim/vimrc .vimrc
+fi
 
 # zsh
-cd $HOME
-git clone git://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
-ln -s dotfiles/zshrc .zshrc
-ln -s dotfiles/tmux.conf .tmux.conf
-ln -s dotfiles/gitconfig .gitconfig
-ln -s dotfiles/gitignore_global .gitignore_global
+if [[ ! -a ".oh-my-zsh" ]]; then
+    git clone git://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
+fi
+link_file zshrc
+link_file tmux.conf
+link_file gitconfig
+link_file gitignore_global
 
 if [[ `users` != "vagrant" ]]; then
     mkdir .ssh -p
