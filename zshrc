@@ -24,7 +24,10 @@ ZSH=$HOME/.oh-my-zsh
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git sublime osx vagrant)
+plugins=(git sublime vagrant)
+if [[ `cat /etc/issue 2>/dev/null` =~ "^Ubuntu" ]]; then
+    plugins+=command-not-found;
+fi
 
 export PATH=/Users/tony/bin:/Users/tony/Develop/upstream/go/bin:/usr/local/sbin:/usr/local/bin:/usr/local/Cellar/ruby/1.9.3-p194/bin:/usr/local/share/python:$PATH
 source $ZSH/oh-my-zsh.sh
