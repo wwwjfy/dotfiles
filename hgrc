@@ -1,0 +1,22 @@
+[ui]
+username=Tony Wang <wwwjfy@gmail.com>
+ignore=~/.hgignore_global
+
+[alias]
+pull = pull --rebase
+
+[extensions]
+graphlog =
+mq =
+rebase =
+progress =
+pager =
+transplant =
+histedit = ~/dotfiles/hgext/hg_histedit.py
+hgext.bookmarks =
+prompt = ~/dotfiles/hgext/prompt.py
+hgexternals = ~/dotfiles/hgext/hgexternals.py
+purge =
+
+[pager]
+pager = LESS='FRX' less
