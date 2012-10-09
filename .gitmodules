@@ -1,0 +1,3 @@
+[submodule "lib/zsh/z"]
+	path = lib/zsh/z
+	url = git://github.com/rupa/z.git

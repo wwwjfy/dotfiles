@@ -1,9 +1,8 @@
 ZSH=$HOME/.oh-my-zsh
 DISABLE_UPDATE_PROMPT=true
 plugins=(git sublime vagrant)
-if [[ `uname` == "Darwin" ]]; then
-    . `brew --prefix`/etc/profile.d/z.sh
-fi
+. $HOME/dotfiles/lib/zsh/z/z.sh
+
 if [[ `cat /etc/issue 2>/dev/null` =~ "^Ubuntu" ]]; then
     plugins+=command-not-found;
 fi
