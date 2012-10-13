@@ -13,6 +13,8 @@ cd $HOME
 # self
 if [[ ! -a "dotfiles" ]]; then
     git clone git://github.com/wwwjfy/dotfiles.git
+    git submodule init
+    git submodule update
 fi
 
 # vim

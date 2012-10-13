@@ -4,10 +4,14 @@ plugins=(git sublime vagrant)
 . $HOME/dotfiles/lib/zsh/z/z.sh
 
 if [[ `cat /etc/issue 2>/dev/null` =~ "^Ubuntu" ]]; then
-    plugins+=command-not-found;
+    if [[ -a /etc/zsh_command_not_found ]]; then
+        plugins+=command-not-found;
+    else
+        echo "Please run 'apt-get install command-not-found'"
+    fi
 fi
 
-export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/Cellar/ruby/1.9.3-p194/bin:/usr/local/share/python:$PATH
+export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/Cellar/ruby/1.9.3-p286/bin:/usr/local/share/python:$PATH
 source $ZSH/oh-my-zsh.sh
 unsetopt correctall
 setopt correct
