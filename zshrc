@@ -47,5 +47,7 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias grep="grep --color=auto"
 alias vi="vi -p"
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 uptime
