@@ -36,7 +36,8 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
 # Alias
 if [[ `uname` == "Darwin" ]]; then
-    alias ls="gls --color"
+    PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    alias ls="ls --color"
     alias find="gfind"
     export GOROOT=`brew --prefix go`
     export PATH=$GOROOT/bin:$PATH
