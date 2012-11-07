@@ -11,7 +11,7 @@ if [[ `cat /etc/issue 2>/dev/null` =~ "^Ubuntu" ]]; then
     fi
 fi
 
-export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:`brew --prefix ruby`/bin:/usr/local/share/python:$PATH
+export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/python:$PATH
 source $ZSH/oh-my-zsh.sh
 unsetopt correctall
 setopt correct
@@ -36,7 +36,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
 # Alias
 if [[ `uname` == "Darwin" ]]; then
-    PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    PATH="$(brew --prefix coreutils)/libexec/gnubin:$(brew --prefix ruby)/bin:$PATH"
     alias ls="ls --color"
     alias find="gfind"
     export GOROOT=`brew --prefix go`
