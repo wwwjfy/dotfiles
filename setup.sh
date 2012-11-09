@@ -13,6 +13,7 @@ cd $HOME
 # self
 if [[ ! -a "dotfiles" ]]; then
     git clone git://github.com/wwwjfy/dotfiles.git
+    cd dotfiles
     git submodule init
     git submodule update
 fi
