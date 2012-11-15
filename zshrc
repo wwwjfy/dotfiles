@@ -1,5 +1,5 @@
 ZSH=$HOME/.oh-my-zsh
-DISABLE_UPDATE_PROMPT=true
+export DISABLE_UPDATE_PROMPT=true
 plugins=(git sublime vagrant)
 . $HOME/dotfiles/lib/zsh/z/z.sh
 
