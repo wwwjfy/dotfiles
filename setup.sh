@@ -16,6 +16,7 @@ if [[ ! -a "dotfiles" ]]; then
     cd dotfiles
     git submodule init
     git submodule update
+    cd $HOME
 fi
 
 # vim
