@@ -53,4 +53,8 @@ alias vi="vi -p"
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+if [ -e ~/.zshrc.custom ]; then
+    source ~/.zshrc.custom
+fi
+
 uptime
