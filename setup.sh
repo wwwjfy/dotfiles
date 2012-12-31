@@ -13,10 +13,21 @@ cd $HOME
 # self
 if [[ ! -a "dotfiles" ]]; then
     git clone git://github.com/wwwjfy/dotfiles.git
-    cd dotfiles
-    git submodule init
-    git submodule update
-    cd $HOME
+fi
+
+cd dotfiles
+git submodule init
+git submodule update
+cd $HOME
+
+if [[ ! -a "bin" ]]; then
+    echo "create ~/bin"
+    mkdir bin
+fi
+
+if [[ ! -a "bin/ffind" ]]; then
+    echo "linking ffind"
+    ln -s ~/dotfiles/lib/zsh/friendly-find/ffind ~/bin/ffind
 fi
 
 # vim
