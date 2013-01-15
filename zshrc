@@ -18,6 +18,8 @@ setopt correct
 
 export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
 
+export EDITOR="vim"
+
 # Prompt
 VIRTUAL_ENV_DISABLE_PROMPT=1
 function virtualenv_info {
@@ -52,6 +54,7 @@ alias grep="grep --color=auto"
 alias vi="vi -p"
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias ffind="ffind -f"
 
 if [ -e ~/.zshrc.custom ]; then
     source ~/.zshrc.custom
