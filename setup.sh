@@ -12,7 +12,7 @@ cd $HOME
 
 # self
 if [[ ! -a "dotfiles" ]]; then
-    git clone git://github.com/wwwjfy/dotfiles.git
+    git clone --recursive git://github.com/wwwjfy/dotfiles.git
 fi
 
 cd dotfiles
@@ -32,7 +32,7 @@ fi
 
 # vim
 if [[ ! -a ".vim" ]]; then
-    git clone git://github.com/wwwjfy/vimfiles.git .vim
+    git clone --recursive git://github.com/wwwjfy/vimfiles.git .vim
     cd .vim
     git submodule init
     git submodule update
