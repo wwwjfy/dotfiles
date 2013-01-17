@@ -29,6 +29,14 @@ function hg_prompt_info() {
     echo "$(hg prompt " hg:(%{$fg[red]%}{branch}%{$reset_color%}{status|modified})" 2>/dev/null)"
 }
 
+parse_git_dirty() {
+  if [[ -n $(git status -s -uno --ignore-submodules=dirty  2> /dev/null) ]]; then
+    echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
+  else
+    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+  fi
+}
+
 PROMPT='╭─%{$fg[magenta]%}  %{$reset_color%}%{$fg[green]%}[%*] %{$fg_no_bold[cyan]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} %{$fg_no_bold[magenta]%}➜%{$reset_color%} %{$fg[cyan]%}%~%{$fg_bold[blue]%}$(git_prompt_info)$(hg_prompt_info)%{$fg_bold[blue]%}%{$reset_color%}
 ╰─%{$fg[yellow]%}$(virtualenv_info)%{$reset_color%}%{${fg_bold[white]}%}[%?]%{$reset_color%} $ '
 ZSH_THEME_GIT_PROMPT_PREFIX=" git:(%{$fg[red]%}"
