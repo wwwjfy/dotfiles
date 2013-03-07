@@ -1,8 +1,8 @@
+# oh-my-zsh {{{
 ZSH=$HOME/.oh-my-zsh
 export DISABLE_UPDATE_PROMPT=true
 plugins=(git sublime vagrant)
-. $HOME/dotfiles/lib/zsh/z/z.sh
-
+# For Ubuntu {{{
 if [[ `cat /etc/issue 2>/dev/null` =~ "^Ubuntu" ]]; then
     if [[ -a /etc/zsh_command_not_found ]]; then
         plugins+=command-not-found;
@@ -10,17 +10,23 @@ if [[ `cat /etc/issue 2>/dev/null` =~ "^Ubuntu" ]]; then
         echo "Please run 'apt-get install command-not-found'"
     fi
 fi
-
-export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/python:$PATH
+# }}}
 source $ZSH/oh-my-zsh.sh
 unsetopt correctall
 setopt correct
+# }}}
 
+# 3rd-party plugins {{{
+. $HOME/dotfiles/lib/zsh/z/z.sh
+# }}}
+
+# Environment {{{
+export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/python:$PATH
 export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
-
 export EDITOR="vim"
+# }}}
 
-# Prompt
+# Prompt {{{
 VIRTUAL_ENV_DISABLE_PROMPT=1
 function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`')'
@@ -43,15 +49,14 @@ ZSH_THEME_GIT_PROMPT_PREFIX=" git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+# }}}
 
-# Alias
-if [[ `uname` == "Darwin" ]]; then
-    PATH="$(brew --prefix coreutils)/libexec/gnubin:$(brew --prefix ruby)/bin:$PATH"
-    alias ls="ls --color"
-    alias find="gfind"
-    export GOROOT=`brew --prefix go`
-    export PATH=$GOROOT/bin:$PATH
-fi
+# Bindkey {{{
+# ctrl-u: clear everything before cursor
+bindkey \^U backward-kill-line
+# }}}
+
+# Alias {{{
 alias l="ls"
 alias la="ls -a"
 alias ll="ls -lh"
@@ -63,6 +68,19 @@ alias vi="vi -p"
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ffind="ffind -f"
+# }}}
+
+# OS Specific {{{
+# For OS X {{{
+if [[ `uname` == "Darwin" ]]; then
+    PATH="$(brew --prefix coreutils)/libexec/gnubin:$(brew --prefix ruby)/bin:$PATH"
+    alias ls="ls --color"
+    alias find="gfind"
+    export GOROOT=`brew --prefix go`
+    export PATH=$GOROOT/bin:$PATH
+fi
+# }}}
+# }}}
 
 if [ -e ~/.zshrc.custom ]; then
     source ~/.zshrc.custom
