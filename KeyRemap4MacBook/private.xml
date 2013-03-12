@@ -198,24 +198,24 @@
       <appendix>Fn + Music Next to F9</appendix>
       <identifier>rf.music_control</identifier>
       <device_only>DeviceVendor::RealForce, DeviceProduct::RealForce</device_only>
+      <autogen>--KeyToKey-- KeyCode::F7, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F7</autogen>
+      <autogen>--KeyToKey-- KeyCode::F8, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F8</autogen>
+      <autogen>--KeyToKey-- KeyCode::F9, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F9</autogen>
       <autogen>--KeyToConsumer-- KeyCode::F7, ConsumerKeyCode::MUSIC_PREV</autogen>
       <autogen>--KeyToConsumer-- KeyCode::F8, ConsumerKeyCode::MUSIC_PLAY</autogen>
       <autogen>--KeyToConsumer-- KeyCode::F9, ConsumerKeyCode::MUSIC_NEXT</autogen>
-      <autogen>--ConsumerToKey-- ConsumerKeyCode::MUSIC_PREV, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F7</autogen>
-      <autogen>--ConsumerToKey-- ConsumerKeyCode::MUSIC_PLAY, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F8</autogen>
-      <autogen>--ConsumerToKey-- ConsumerKeyCode::MUSIC_NEXT, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F9</autogen>
     </item>
 
     <item>
       <name>Volume Control</name>
       <identifier>rf.volume</identifier>
       <device_only>DeviceVendor::RealForce, DeviceProduct::RealForce</device_only>
+      <autogen>--KeyToKey-- KeyCode::F10, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F10</autogen>
+      <autogen>--KeyToKey-- KeyCode::F11, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F11</autogen>
+      <autogen>--KeyToKey-- KeyCode::F12, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F12</autogen>
       <autogen>--KeyToConsumer-- KeyCode::F10, ConsumerKeyCode::VOLUME_MUTE</autogen>
       <autogen>--KeyToConsumer-- KeyCode::F11, ConsumerKeyCode::VOLUME_DOWN</autogen>
       <autogen>--KeyToConsumer-- KeyCode::F12, ConsumerKeyCode::VOLUME_UP</autogen>
-      <autogen>--ConsumerToKey-- ConsumerKeyCode::VOLUME_MUTE, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F10</autogen>
-      <autogen>--ConsumerToKey-- ConsumerKeyCode::VOLUME_DOWN, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F11</autogen>
-      <autogen>--ConsumerToKey-- ConsumerKeyCode::VOLUME_UP, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F12</autogen>
     </item>
 
   </item>
