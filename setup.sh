@@ -64,6 +64,7 @@ if [[ `uname` == "Darwin" ]]; then
         ln -s $HOME/dotfiles/KeyRemap4MacBook/private.xml .
     fi
     cd $HOME
+    link_file slate
 fi
 
 if [[ `users` != "vagrant" ]]; then
