@@ -3,6 +3,8 @@ config defaultToCurrentScreen true
 alias hyper ctrl;shift;alt;cmd
 
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias left move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias right move screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 
 layout fullLayout 'Google Chrome':REPEAT ${full}
 layout fullLayout 'Safari':REPEAT ${full}
@@ -15,4 +17,6 @@ layout fullLayout 'Xcode':REPEAT ${full}
 layout fullLayout 'ReadKit':REPEAT ${full}
 
 bind ,:ctrl ${full}
+bind [:${hyper} ${left}
+bind ]:${hyper} ${right}
 bind .:ctrl layout fullLayout
