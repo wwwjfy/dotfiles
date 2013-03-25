@@ -21,7 +21,7 @@ setopt correct
 # }}}
 
 # Environment {{{
-export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/python:$PATH
+export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/python:/usr/local/share/python3:$PATH
 export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
 export EDITOR="vim"
 # }}}
@@ -68,6 +68,7 @@ alias vi="vi -p"
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ffind="ffind -f"
+alias top=htop
 # }}}
 
 # OS Specific {{{
