@@ -12,7 +12,8 @@ layout fullLayout 'Sublime Text':REPEAT ${full}
 layout fullLayout 'Reeder':REPEAT ${full}
 layout fullLayout 'iTunes':REPEAT ${full}
 layout fullLayout 'iTerm':REPEAT ${full}
-layout fullLayout 'Airmail':REPEAT ${full}
+layout fullLayout 'Sparrow':REPEAT ${full}
+layout fullLayout 'Numbers':REPEAT ${full}
 layout fullLayout 'Xcode':REPEAT ${full}
 layout fullLayout 'ReadKit':REPEAT ${full}
 

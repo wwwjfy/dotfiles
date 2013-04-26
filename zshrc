@@ -56,6 +56,14 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 bindkey \^U backward-kill-line
 # }}}
 
+# Function {{{
+function rmme {
+    local dir=$(basename $(pwd))
+    cd ..
+    rm -rf $dir
+}
+# }}}
+
 # Alias {{{
 alias l="ls"
 alias la="ls -a"
