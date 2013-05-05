@@ -58,8 +58,16 @@ bindkey \^U backward-kill-line
 
 # Function {{{
 function rmme {
-    local dir=$(basename $(pwd))
-    cd ..
+    level=1
+    if [[ ""$1 != "" ]]; then
+        level=$1
+    fi
+    for i in {1..$level}; do
+        local dir=$(basename $(pwd))
+        cd ..
+    done
+    echo "About to delete $dir"
+    sleep 1
     rm -rf $dir
 }
 # }}}
