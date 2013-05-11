@@ -9,6 +9,10 @@ if [[ `cat /etc/issue 2>/dev/null` =~ "^Ubuntu" ]]; then
     else
         echo "Please run 'apt-get install command-not-found'"
     fi
+# }}}
+# For OS X {{{
+elif [[ `uname` == "Darwin" ]]; then
+    fpath=($HOME/dotfiles/lib/zsh/completion $fpath)
 fi
 # }}}
 source $ZSH/oh-my-zsh.sh
