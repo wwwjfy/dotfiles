@@ -63,6 +63,10 @@ function fish_prompt
     echo -n \$
     echo -n " "
 end
+
+function fish_title
+    echo $_
+end
 # }}}
 
 # Aliases {{{
