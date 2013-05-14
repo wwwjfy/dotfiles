@@ -4,3 +4,6 @@
 [submodule "lib/zsh/friendly-find"]
 	path = lib/zsh/friendly-find
 	url = git://github.com/sjl/friendly-find.git
+[submodule "lib/fish/z-fish"]
+	path = lib/fish/z-fish
+	url = git://github.com/sjl/z-fish.git

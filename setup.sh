@@ -54,6 +54,10 @@ link_file gitignore_global
 link_file hgrc
 link_file hgignore_global
 
+# fish
+ln -s $HOME/dotfiles/fish/config.fish .config/fish/config.fish
+ln -s $HOME/dotfiles/fish/functions .config/fish/functions
+
 if [[ `uname` == "Darwin" ]]; then
     KeyRemap4MacBookPath="$HOME/Library/Application Support/KeyRemap4MacBook"
     if [[ ! -a "$KeyRemap4MacBookPath" ]]; then
