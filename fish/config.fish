@@ -58,14 +58,25 @@ function fish_prompt
         echo -n {$yellow}"("(basename "$VIRTUAL_ENV")")"{$normal}
     end
 
-    echo -n {$white}[$last_status]{$normal}
+    if test $last_status -gt 0
+        echo -n {$red}"("$last_status")"{$normal}
+    end
     echo -n " "
     echo -n \$
     echo -n " "
 end
 
 function fish_title
-    echo $_
+    if test $_ = "fish"
+        set pwd (echo $PWD | sed -e "s|$HOME|~|")
+        if test (expr length $pwd) -gt 15
+            echo $pwd | cut -b (expr length $pwd - 15)-
+        else
+            echo $pwd
+        end
+    else
+        echo $_
+    end
 end
 # }}}
 
@@ -94,7 +105,7 @@ end
 
 function rmme
     set level 1
-    if test -n $argv[1]
+    if test (count $argv) -ge 1; and test -n {$argv[1]}
         set level $argv[1]
     end
     for i in (seq (echo $level))
@@ -108,12 +119,11 @@ end
 # }}}
 
 # Completion {{{
-set OS (uname)
-if test $OS = "Darwin"
+if test (uname) = "Darwin"
     set -gx PATH (brew --prefix coreutils)/libexec/gnubin (brew --prefix ruby)/bin $PATH
     function find; command gfind $argv; end
-    set -gx GOROOT (brew --prefix go)
-    set -gx PATH $GOROOT/bin $PATH
+    set -gx GOPATH (brew --prefix go)
+    set -gx PATH $GOPATH/bin $PATH
 # FIXME: so slow
 #     . (brew --prefix)/Library/Contributions/brew_fish_completion.fish
 end
