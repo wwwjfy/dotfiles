@@ -89,6 +89,7 @@ function cp; command cp -i $argv; end
 function mv; command mv -i $argv; end
 function grep; command grep --color=auto $argv; end
 function v; vim -p $argv; end
+function v-; vim -; end
 function ...; cd ../..; end
 function ....; cd ../../..; end
 function .....; cd ../../../..; end
@@ -116,6 +117,15 @@ function rmme
     sleep 1
     command rm -rf $dir
 end
+
+function make_completion --argument alias command
+    complete -c $alias -xa "(
+        set -l cmd (commandline -pc | sed -e 's/^ *\S\+ *//' );
+        complete -C\"$command \$cmd\";
+    )"
+end
+make_completion g git
+
 # }}}
 
 # Completion {{{
