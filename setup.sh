@@ -1,9 +1,10 @@
 #!/bin/zsh
 
 function link_file() {
-    if [[ ! -a ".$1" ]]; then
-        ln -s dotfiles/$1 .$1
+    if [[ -a ".$1" ]]; then
+        rm .$1
     fi
+    ln -s dotfiles/$1 .$1
 }
 
 set -e
@@ -26,7 +27,8 @@ fi
 
 if [[ ! -a "bin/ffind" ]]; then
     echo "linking ffind"
-    ln -s ~/dotfiles/lib/zsh/friendly-find/ffind ~/bin/ffind
+    rm ~/bin/ffind
+    ln -s ~/dotfiles/lib/friendly-find/ffind ~/bin/ffind
 fi
 
 # vim

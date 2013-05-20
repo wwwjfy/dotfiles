@@ -125,6 +125,7 @@ function make_completion --argument alias command
     )"
 end
 make_completion g git
+make_completion gca "git commit -a"
 
 # }}}
 
