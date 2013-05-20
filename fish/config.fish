@@ -124,8 +124,6 @@ function make_completion --argument alias command
         complete -C\"$command \$cmd\";
     )"
 end
-make_completion g git
-make_completion gca "git commit -a"
 
 # }}}
 
