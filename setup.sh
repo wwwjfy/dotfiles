@@ -21,15 +21,15 @@ git submodule update --init
 cd $HOME
 
 if [[ ! -a "bin" ]]; then
-    echo "create ~/bin"
+    echo "creating ~/bin"
     mkdir bin
 fi
 
-if [[ ! -a "bin/ffind" ]]; then
-    echo "linking ffind"
+if [ -e "bin/ffind" -o -h "bin/ffind" ]; then
     rm ~/bin/ffind
-    ln -s ~/dotfiles/lib/friendly-find/ffind ~/bin/ffind
 fi
+echo "linking ffind"
+ln -s ~/dotfiles/lib/friendly-find/ffind ~/bin/ffind
 
 # vim
 if [[ ! -a ".vim" ]]; then
