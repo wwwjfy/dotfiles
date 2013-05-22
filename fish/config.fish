@@ -98,43 +98,12 @@ function top; htop; end
 function g; git $argv; end
 # }}}
 
-# Functions {{{
-function take
-    mkdir -p $argv[1]
-    cd $argv[1]
-end
-
-function rmme
-    set level 1
-    if test (count $argv) -ge 1; and test -n {$argv[1]}
-        set level $argv[1]
-    end
-    for i in (seq (echo $level))
-        set dir (basename $PWD)
-        cd ..
-    end
-    echo "About to delete $dir"
-    sleep 1
-    command rm -rf $dir
-end
-
-function make_completion --argument alias command
-    complete -c $alias -xa "(
-        set -l cmd (commandline -pc | sed -e 's/^ *\S\+ *//' );
-        complete -C\"$command \$cmd\";
-    )"
-end
-
-# }}}
-
 # Completion {{{
 if test (uname) = "Darwin"
     set -gx PATH (brew --prefix coreutils)/libexec/gnubin (brew --prefix ruby)/bin $PATH
     function find; command gfind $argv; end
     set -gx GOPATH (brew --prefix go)
     set -gx PATH $GOPATH/bin $PATH
-# FIXME: so slow
-#     . (brew --prefix)/Library/Contributions/brew_fish_completion.fish
 end
 # }}}
 
