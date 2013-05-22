@@ -68,12 +68,23 @@ end
 
 function fish_title
     if test $_ = "fish"
-        set pwd (echo $PWD | sed -e "s|$HOME|~|")
-        if test (expr length $pwd) -gt 15
-            echo $pwd | cut -b (expr length $pwd - 15)-
+        set cwd (echo $PWD | sed -e "s|$HOME|~|")
+        if test (expr length $cwd) -eq 1
+            echo $cwd
         else
-            echo $pwd
+            set path (basename $cwd)
+            set cwd (dirname $cwd)
+            while test (expr length $cwd) -ne 1
+                set path (basename $cwd | cut -b1)/$path
+                set cwd (dirname $cwd)
+            end
+            echo $cwd/$path
         end
+        # if test (expr length $pwd) -gt 15
+        #     echo $pwd | cut -b (expr length $pwd - 15)-
+        # else
+        #     echo $pwd
+        # end
     else
         echo $_
     end
@@ -90,6 +101,7 @@ function mv; command mv -i $argv; end
 function grep; command grep --color=auto $argv; end
 function v; vim -p $argv; end
 function v-; vim -; end
+function vf; vim ~/.config/fish/config.fish; end
 function ...; cd ../..; end
 function ....; cd ../../..; end
 function .....; cd ../../../..; end
