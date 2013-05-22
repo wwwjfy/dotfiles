@@ -78,7 +78,7 @@ function fish_title
                 set path (basename $cwd | cut -b1)/$path
                 set cwd (dirname $cwd)
             end
-            echo $cwd/$path
+            echo (echo $cwd/$path | sed "s|^//|/|")
         end
         # if test (expr length $pwd) -gt 15
         #     echo $pwd | cut -b (expr length $pwd - 15)-
