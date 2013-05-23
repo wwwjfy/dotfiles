@@ -110,10 +110,8 @@
         KeyCode::VK_MOUSEKEY_RIGHT,
         ModifierFlag::FN
       </autogen>
-      <autogen>--KeyToKey-- KeyCode::J, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
+      <autogen>--KeyToKey-- KeyCode::RETURN, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
           KeyCode::VK_MOUSEKEY_BUTTON_LEFT, ModifierFlag::FN</autogen>
-      <autogen>--KeyToKey-- KeyCode::QUOTE, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-          KeyCode::VK_MOUSEKEY_BUTTON_RIGHT, ModifierFlag::FN</autogen>
     </item>
   </item>
 
