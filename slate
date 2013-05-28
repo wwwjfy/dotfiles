@@ -1,4 +1,5 @@
 config defaultToCurrentScreen true
+config focusPreferSameApp false
 
 alias hyper ctrl;shift;alt;cmd
 
@@ -18,6 +19,8 @@ layout fullLayout 'Xcode':REPEAT ${full}
 layout fullLayout 'ReadKit':REPEAT ${full}
 
 bind ,:ctrl ${full}
-bind [:${hyper} ${left}
-bind ]:${hyper} ${right}
+bind ;:${hyper} ${left}
+bind ':${hyper} ${right}
 bind .:ctrl layout fullLayout
+bind ;:ctrl focus left
+bind ':ctrl focus right

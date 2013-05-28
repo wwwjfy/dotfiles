@@ -25,11 +25,11 @@ if [[ ! -a "bin" ]]; then
     mkdir bin
 fi
 
-if [ -e "bin/ffind" -o -h "bin/ffind" ]; then
-    rm ~/bin/ffind
+if [ ! -h "bin/ffind" ]; then
+    rm -f ~/bin/ffind
+    echo "linking ffind"
+    ln -s ~/dotfiles/lib/friendly-find/ffind ~/bin/ffind
 fi
-echo "linking ffind"
-ln -s ~/dotfiles/lib/friendly-find/ffind ~/bin/ffind
 
 # vim
 if [[ ! -a ".vim" ]]; then
@@ -57,6 +57,7 @@ link_file hgignore_global
 # fish
 ln -s $HOME/dotfiles/fish/config.fish .config/fish/config.fish
 ln -s $HOME/dotfiles/fish/functions .config/fish/functions
+ln -s $HOME/dotfiles/fish/completions .config/fish/completions
 
 if [[ `uname` == "Darwin" ]]; then
     KeyRemap4MacBookPath="$HOME/Library/Application Support/KeyRemap4MacBook"
