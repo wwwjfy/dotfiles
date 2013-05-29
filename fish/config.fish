@@ -67,21 +67,10 @@ function fish_prompt
 end
 
 function fish_title
-    set cwd (echo $PWD | sed -e "s|$HOME|~|")
     if test $_ = "fish"
-        if test (expr length $cwd) -eq 1
-            echo $cwd
-        else
-            set path (basename $cwd)
-            set cwd (dirname $cwd)
-            while test (expr length $cwd) -ne 1
-                set path (basename $cwd | cut -b1)/$path
-                set cwd (dirname $cwd)
-            end
-            echo (echo $cwd/$path | sed "s|^//|/|")
-        end
+        prompt_pwd
     else
-        echo $_ "["(basename $cwd)"]"
+        echo $_ "["(basename (prompt_pwd))"]"
     end
 end
 # }}}
