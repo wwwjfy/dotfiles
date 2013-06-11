@@ -1,0 +1,1 @@
+complete -f -c adb -a 'devices connect disconnect push pull sync shell shell emu logcat forward jdwp install uninstall bugreport backup restore help version wait-for-device start-server kill-server get-state get-serialno get-devpath status-window remount reboot reboot-bootloader root usb tcpip ppp'

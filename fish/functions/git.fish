@@ -16,9 +16,9 @@ end
 make_completion gl "git pull"
 
 function glg
-    command git log --graph --decorate --all --max-count=5 $argv
+    command git log --graph --decorate $argv
 end
-make_completion glg "git log --graph --decorate --all --max-count=5"
+make_completion glg "git log --graph --decorate"
 
 function glgg
     command git log --graph --decorate --all $argv

@@ -6,7 +6,7 @@ end
 
 # Environment {{{
 set -gx PATH $HOME/bin /usr/local/sbin /usr/local/bin /usr/local/share/python /usr/local/share/python3 $PATH
-set -gx NODE_PATH "/usr/local/lib/node_modules:$NODE_PATH"
+set -gx NODE_PATH /usr/local/lib/node_modules $NODE_PATH
 set -gx EDITOR vim
 set -gx fish_greeting ''
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
@@ -22,7 +22,7 @@ set white (set_color white)
 set red (set_color red)
 
 function git_prompt
-    if git symbolic-ref HEAD >/dev/null ^&1
+    if git rev-parse --show-toplevel >/dev/null ^&1
         echo -n " git:("{$red}(git rev-parse --abbrev-ref HEAD){$normal}")"
         set -l dirty (git status -s -uno ^/dev/null)
         if test -n "$dirty"
@@ -38,6 +38,10 @@ end
 function fish_prompt
     set last_status $status
     z --add "$PWD"
+
+    if set -q CMD_DURATION
+        echo (set_color 555)"->"(set_color normal) $CMD_DURATION
+    end
     echo -n ╭─ {$magenta}{$normal}
     echo -n " "
     echo -n {$green}[(date +%H:%M:%S)]{$normal}
