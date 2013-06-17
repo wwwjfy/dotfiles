@@ -5,7 +5,13 @@ end
 . $HOME/dotfiles/lib/fish/z-fish/z.fish
 
 # Environment {{{
-set -gx PATH $HOME/bin /usr/local/sbin /usr/local/bin /usr/local/share/python /usr/local/share/python3 $PATH
+set -gx PATH $HOME/bin $PATH
+set -gx PATH /usr/local/sbin /usr/local/bin $PATH
+for path in (gem environment gempath | tr ':' '\n')
+    set -gx PATH $path/bin $PATH
+end
+set -gx PATH /usr/local/share/python /usr/local/share/python3 $PATH
+set -gx PATH (npm bin) $PATH
 set -gx NODE_PATH /usr/local/lib/node_modules $NODE_PATH
 set -gx EDITOR vim
 set -gx fish_greeting ''
