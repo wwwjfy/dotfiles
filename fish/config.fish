@@ -5,13 +5,18 @@ end
 . $HOME/dotfiles/lib/fish/z-fish/z.fish
 
 # Environment {{{
-set -gx PATH $HOME/bin $PATH
 set -gx PATH /usr/local/sbin /usr/local/bin $PATH
 for path in (gem environment gempath | tr ':' '\n')
     set -gx PATH $path/bin $PATH
 end
 set -gx PATH /usr/local/share/python /usr/local/share/python3 $PATH
 set -gx PATH (npm bin) $PATH
+if test (uname) = "Darwin"
+    set -gx PATH (brew --prefix coreutils)/libexec/gnubin (brew --prefix ruby)/bin $PATH
+    set -gx GOPATH (brew --prefix go)
+    set -gx PATH $GOPATH/bin $PATH
+end
+set -gx PATH $HOME/bin $PATH
 set -gx NODE_PATH /usr/local/lib/node_modules $NODE_PATH
 set -gx EDITOR vim
 set -gx fish_greeting ''
@@ -93,6 +98,9 @@ function lla; command ls -lha $argv; end
 function cp; command cp -i $argv; end
 function mv; command mv -i $argv; end
 function grep; command grep --color=auto $argv; end
+if test (uname) = "Darwin"
+    function find; command gfind $argv; end
+end
 function v; vim -p $argv; end
 function v-; vim -; end
 function vf; vim ~/.config/fish/config.fish; end
@@ -102,15 +110,7 @@ function .....; cd ../../../..; end
 function ffind; command ffind -f $argv; end
 function top; htop; end
 function g; git $argv; end
-# }}}
-
-# Completion {{{
-if test (uname) = "Darwin"
-    set -gx PATH (brew --prefix coreutils)/libexec/gnubin (brew --prefix ruby)/bin $PATH
-    function find; command gfind $argv; end
-    set -gx GOPATH (brew --prefix go)
-    set -gx PATH $GOPATH/bin $PATH
-end
+function ta; tmux attach $argv; end
 # }}}
 
 if test -s $HOME/.config/fish/local.fish
