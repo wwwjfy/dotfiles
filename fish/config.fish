@@ -6,11 +6,15 @@ end
 
 # Environment {{{
 set -gx PATH /usr/local/sbin /usr/local/bin $PATH
-for path in (gem environment gempath | tr ':' '\n')
-    set -gx PATH $path/bin $PATH
+if which gem > /dev/null
+    for path in (gem environment gempath | tr ':' '\n')
+        set -gx PATH $path/bin $PATH
+    end
 end
 set -gx PATH /usr/local/share/python /usr/local/share/python3 $PATH
-set -gx PATH (npm bin) $PATH
+if which npm > /dev/null
+    set -gx PATH (npm bin) $PATH
+end
 if test (uname) = "Darwin"
     set -gx PATH (brew --prefix coreutils)/libexec/gnubin (brew --prefix ruby)/bin $PATH
     set -gx GOPATH (brew --prefix go)
