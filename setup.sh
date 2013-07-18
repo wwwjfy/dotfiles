@@ -55,6 +55,7 @@ link_file hgrc
 link_file hgignore_global
 
 # fish
+mkdir -p .config/fish/
 ln -s $HOME/dotfiles/fish/config.fish .config/fish/config.fish
 ln -s $HOME/dotfiles/fish/functions .config/fish/functions
 ln -s $HOME/dotfiles/fish/completions .config/fish/completions
