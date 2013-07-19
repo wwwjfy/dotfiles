@@ -114,6 +114,8 @@ function .....; cd ../../../..; end
 function ffind; command ffind -f $argv; end
 function top; htop; end
 function g; git $argv; end
+function va; vagrant $argv; end
+function t; tmux $argv; end
 function ta; tmux attach $argv; end
 # }}}
 
