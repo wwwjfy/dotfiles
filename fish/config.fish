@@ -116,6 +116,7 @@ function top; htop; end
 make_completion g git
 make_completion va vagrant
 make_completion t tmux
+function e; emacsclient --alternate-editor="" -c $argv; end
 function ta; tmux attach $argv; end
 # }}}
 
