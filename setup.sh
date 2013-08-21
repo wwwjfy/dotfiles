@@ -31,6 +31,12 @@ if [ ! -h "bin/ffind" ]; then
     ln -s ~/dotfiles/lib/friendly-find/ffind ~/bin/ffind
 fi
 
+if [ ! -h "bin/stack" ]; then
+    rm -f ~/bin/stack
+    echo "linking stack"
+    ln -s ~/dotfiles/lib/fish/stack/stack ~/bin/stack
+fi
+
 # vim
 if [[ ! -a ".vim" ]]; then
     git clone --recursive git://github.com/wwwjfy/vimfiles.git .vim
