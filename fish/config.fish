@@ -38,7 +38,7 @@ set red (set_color red)
 
 function git_prompt
     if git rev-parse --show-toplevel >/dev/null ^&1
-        echo -n " git:("{$red}(git rev-parse --abbrev-ref HEAD){$normal}")"
+        echo -n " git:("{$red}(git rev-parse --abbrev-ref HEAD ^/dev/null){$normal}")"
         set -l dirty (git status -s -uno ^/dev/null)
         if test -n "$dirty"
             echo -n " "{$yellow}✗{$normal}
