@@ -69,6 +69,8 @@ function fish_prompt
     git_prompt
     hg_prompt
 
+    echo -n " ["(stack count)"]"
+
     echo
 
     echo -n ╰─
