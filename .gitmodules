@@ -1,12 +1,12 @@
 [submodule "lib/zsh/z"]
 	path = lib/zsh/z
 	url = git://github.com/rupa/z.git
-[submodule "lib/fish/z-fish"]
-	path = lib/fish/z-fish
-	url = git://github.com/wwwjfy/z-fish.git
 [submodule "lib/friendly-find"]
 	path = lib/friendly-find
 	url = git://github.com/sjl/friendly-find.git
 [submodule "lib/fish/stack"]
 	path = lib/fish/stack
 	url = https://github.com/wwwjfy/stack.git
+[submodule "lib/fish/z.fish"]
+	path = lib/fish/z.fish
+	url = https://github.com/wwwjfy/z.fish.git

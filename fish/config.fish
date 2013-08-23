@@ -2,7 +2,7 @@ if not status -i
     exit
 end
 
-. $HOME/dotfiles/lib/fish/z-fish/z.fish
+. $HOME/dotfiles/lib/fish/z.fish/z.fish
 
 # Environment {{{
 set -gx PATH /usr/local/sbin /usr/local/bin $PATH
