@@ -71,7 +71,7 @@ function fish_prompt
 
     set -l scount (stack count)
     if [ $scount != "0" ]
-        echo -n " [$scount]"
+        echo -n " [$scount]" (stack last)
     end
 
     echo
