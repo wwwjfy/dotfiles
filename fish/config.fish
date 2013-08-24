@@ -69,7 +69,10 @@ function fish_prompt
     git_prompt
     hg_prompt
 
-    echo -n " ["(stack count)"]"
+    set -l scount (stack count)
+    if [ $scount != "0" ]
+        echo -n " [$scount]"
+    end
 
     echo
 
