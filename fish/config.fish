@@ -123,6 +123,7 @@ make_completion va vagrant
 make_completion t tmux
 function e; emacsclient --alternate-editor="" -c $argv; end
 function ta; tmux attach $argv; end
+function ag0; ag --depth=0 $argv; end
 # }}}
 
 if test -s $HOME/.config/fish/local.fish
