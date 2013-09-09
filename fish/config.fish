@@ -119,6 +119,7 @@ function .....; cd ../../../..; end
 function ffind; command ffind -f $argv; end
 function top; htop; end
 make_completion g git
+make_completion h hg
 make_completion va vagrant
 make_completion t tmux
 function e; emacsclient --alternate-editor="" -c $argv; end
