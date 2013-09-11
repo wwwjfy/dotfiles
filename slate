@@ -18,6 +18,7 @@ layout fullLayout 'Airmail':REPEAT ${full}
 layout fullLayout 'Numbers':REPEAT ${full}
 layout fullLayout 'Xcode':REPEAT ${full}
 layout fullLayout 'ReadKit':REPEAT ${full}
+layout fullLayout 'StringerX':REPEAT ${full}
 
 bind ,:ctrl ${full}
 bind ;:${hyper} ${left}
