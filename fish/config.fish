@@ -79,7 +79,7 @@ function fish_prompt
     if [ -r $github_contrib_file ]
         set -l github_contrib (cat $github_contrib_file)
         if [ -n $github_contrib ]
-            echo -n " github:($github_contrib)"
+            echo -n " github:("{$green}{$github_contrib}{$normal}")"
         end
     end
 
