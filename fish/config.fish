@@ -132,8 +132,14 @@ make_completion h hg
 make_completion va vagrant
 make_completion t tmux
 function e; emacsclient --alternate-editor="" -c $argv; end
-function ta; tmux attach $argv; end
 function ag0; ag --depth=0 $argv; end
+function ta
+    if [ (tmux ls ^/dev/null | wc -l) = "0" ]
+        tmux new $argv
+    else
+        tmux attach $argv
+    end
+end
 # }}}
 
 if test (uname) = "Darwin"
