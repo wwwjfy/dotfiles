@@ -50,6 +50,8 @@ function hg_prompt
     hg prompt " hg:($red{branch}$normal{status|modified})" ^/dev/null
 end
 
+set github_contrib_file $HOME/.config/fish/github_contribution
+
 function fish_prompt
     set last_status $status
     z --add "$PWD"
@@ -72,6 +74,13 @@ function fish_prompt
     set -l scount (stack count)
     if [ $scount != "0" ]
         echo -n " [$scount]" (stack last)
+    end
+
+    if [ -r $github_contrib_file ]
+        set -l github_contrib (cat $github_contrib_file)
+        if [ -n $github_contrib ]
+            echo -n " github:($github_contrib)"
+        end
     end
 
     echo
@@ -112,7 +121,7 @@ if test (uname) = "Darwin"
 end
 function v; vim -p $argv; end
 function v-; vim -; end
-function vf; vim ~/.config/fish/config.fish; end
+function vf; vim $HOME/.config/fish/config.fish; end
 function ...; cd ../..; end
 function ....; cd ../../..; end
 function .....; cd ../../../..; end
@@ -126,6 +135,12 @@ function e; emacsclient --alternate-editor="" -c $argv; end
 function ta; tmux attach $argv; end
 function ag0; ag --depth=0 $argv; end
 # }}}
+
+if test (uname) = "Darwin"
+    if test (/usr/bin/stat -f "%m" $github_contrib_file) -gt (expr (/bin/date "+%s") + 3600)
+        ~/dotfiles/fish/get_github_contribution.fish wwwjfy $github_contrib_file &
+    end
+end
 
 if test -s $HOME/.config/fish/local.fish
     . $HOME/.config/fish/local.fish
