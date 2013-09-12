@@ -137,7 +137,7 @@ function ag0; ag --depth=0 $argv; end
 # }}}
 
 if test (uname) = "Darwin"
-    if test (/usr/bin/stat -f "%m" $github_contrib_file) -gt (expr (/bin/date "+%s") + 3600)
+    if test (/usr/bin/stat -f "%m" $github_contrib_file) -lt (expr (/bin/date "+%s") - 3600)
         ~/dotfiles/fish/get_github_contribution.fish wwwjfy $github_contrib_file &
     end
 end
