@@ -3,7 +3,7 @@
 	email = wwwjfy@gmail.com
 [alias]
 	co = checkout
-	st = status -sb
+	st = status -sb --ignore-submodules=untracked
 	ci = commit -v
 	out = !"git fetch; git log origin/HEAD..master"
 	unpushed = log --branches --not --remotes
