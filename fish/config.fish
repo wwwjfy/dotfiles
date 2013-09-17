@@ -143,7 +143,7 @@ end
 # }}}
 
 if test (uname) = "Darwin"
-    if test (/usr/bin/stat -f "%m" $github_contrib_file) -lt (expr (/bin/date "+%s") - 3600)
+    if test ! -e $github_contrib_file; or test (/usr/bin/stat -f "%m" $github_contrib_file) -lt (expr (/bin/date "+%s") - 3600)
         bash ~/dotfiles/get_github_contribution.sh wwwjfy $github_contrib_file &
     end
 end
