@@ -147,7 +147,7 @@ if test (uname) = "Darwin"
         touch $github_contrib_file
     end
     if test (/usr/bin/stat -f "%m" $github_contrib_file) -lt (expr (/bin/date "+%s") - 3600)
-        bash ~/dotfiles/get_github_contribution.sh wwwjfy $github_contrib_file &
+        fish ~/dotfiles/fish/get_github_contribution wwwjfy $github_contrib_file &
     end
 end
 
