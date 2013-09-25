@@ -1,5 +1,3 @@
-make_completion g git
-
 function gc
     command git commit -v $argv
 end
