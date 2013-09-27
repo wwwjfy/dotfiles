@@ -71,16 +71,16 @@ function fish_prompt
     git_prompt
     hg_prompt
 
-    set -l scount (stack count)
-    if [ $scount != "0" ]
-        echo -n " [$scount]" (stack last)
-    end
-
     if [ -r $github_contrib_file ]
         set -l github_contrib (cat $github_contrib_file)
         if [ -n $github_contrib ]
             echo -n " github:("{$green}{$github_contrib}{$normal}")"
         end
+    end
+
+    set -l scount (stack count)
+    if [ $scount != "0" ]
+        echo -n " [$scount]" (stack last)
     end
 
     echo
