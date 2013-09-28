@@ -71,10 +71,12 @@ function fish_prompt
     git_prompt
     hg_prompt
 
-    if [ -r $github_contrib_file ]
-        set -l github_contrib (cat $github_contrib_file)
-        if [ -n $github_contrib ]
-            echo -n " github:("{$green}{$github_contrib}{$normal}")"
+    if test (uname) = "Darwin"
+        if [ -r $github_contrib_file ]
+            set -l github_contrib (cat $github_contrib_file)
+            if [ -n $github_contrib ]
+                echo -n " github:("{$green}{$github_contrib}{$normal}")"
+            end
         end
     end
 
@@ -148,6 +150,18 @@ if test (uname) = "Darwin"
     end
     if test (/usr/bin/stat -f "%m" $github_contrib_file) -lt (expr (/bin/date "+%s") - 3600)
         fish ~/dotfiles/fish/get_github_contribution wwwjfy $github_contrib_file > /dev/null ^/dev/null &
+    end
+    set brew_update_file $HOME/.config/fish/brew_update
+    if test ! -e $brew_update_file
+        echo (/bin/date "+%s") > $brew_update_file
+    end
+    if test (/usr/bin/stat -f "%m" $brew_update_file) -lt (expr (/bin/date "+%s"))
+        touch $brew_update_file
+        brew update > /dev/null ^/dev/null &
+    end
+    if test (cat $brew_update_file) -lt (expr (/bin/date "+%s") - 21600)
+        echo (/bin/date "+%s") > $brew_update_file
+        brew outdated &
     end
 end
 
