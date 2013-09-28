@@ -155,7 +155,7 @@ if test (uname) = "Darwin"
     if test ! -e $brew_update_file
         echo (/bin/date "+%s") > $brew_update_file
     end
-    if test (/usr/bin/stat -f "%m" $brew_update_file) -lt (expr (/bin/date "+%s"))
+    if test (/usr/bin/stat -f "%m" $brew_update_file) -lt (expr (/bin/date "+%s") - 3600)
         touch $brew_update_file
         brew update > /dev/null ^/dev/null &
     end
