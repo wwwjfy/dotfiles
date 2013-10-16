@@ -161,7 +161,7 @@ if test (uname) = "Darwin"
     end
     if test (cat $brew_update_file) -lt (expr (/bin/date "+%s") - 21600)
         echo (/bin/date "+%s") > $brew_update_file
-        brew outdated &
+        brew outdated
     end
 end
 
