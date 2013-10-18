@@ -124,6 +124,7 @@ end
 function v; vim -p $argv; end
 function v-; vim -; end
 function vf; vim $HOME/.config/fish/config.fish; end
+function vv; vim $HOME/.vimrc; end
 function ...; cd ../..; end
 function ....; cd ../../..; end
 function .....; cd ../../../..; end
