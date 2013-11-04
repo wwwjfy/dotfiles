@@ -12,13 +12,10 @@ if which gem > /dev/null
     end
 end
 set -gx PATH /usr/local/share/python /usr/local/share/python3 $PATH
-#if which npm > /dev/null
-    #set -gx PATH (npm bin) $PATH
-#end
 if test (uname) = "Darwin"
     set -gx PATH /usr/local/opt/coreutils/libexec/gnubin (brew --prefix ruby)/bin $PATH
     set -gx GOPATH /usr/local/opt/go
-    set -gx PATH $GOPATH/bin $PATH
+    set -gx PATH /usr/local/share/npm/bin $GOPATH/bin $PATH
 end
 set -gx PATH $HOME/bin $PATH
 set -gx NODE_PATH /usr/local/lib/node_modules $NODE_PATH
