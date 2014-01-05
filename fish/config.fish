@@ -22,6 +22,7 @@ set -gx NODE_PATH /usr/local/lib/node_modules $NODE_PATH
 set -gx EDITOR vim
 set -gx fish_greeting ''
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
+eval (dircolors -c $HOME/dotfiles/dircolors.ansi-dark)
 # }}}
 
 # Prompt {{{
@@ -110,8 +111,8 @@ end
 # Aliases {{{
 function l; command ls $argv; end
 function la; command ls -a $argv; end
-function ll; command ls -lh $argv; end
-function lla; command ls -lha $argv; end
+function ll; ls -lh $argv; end
+function lla; ls -lha $argv; end
 function cp; command cp -i $argv; end
 function mv; command mv -i $argv; end
 function grep; command grep --color=auto $argv; end
