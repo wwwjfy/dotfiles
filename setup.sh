@@ -31,6 +31,18 @@ if [ ! -h "bin/ffind" ]; then
     ln -s ~/dotfiles/lib/friendly-find/ffind ~/bin/ffind
 fi
 
+if [ ! -h "bin/showmem" ]; then
+    rm -f ~/bin/showmem
+    echo "linking showmem"
+    ln -s ~/dotfiles/bin/showmem ~/bin/showmem
+fi
+
+if [ ! -h "bin/showcpu" ]; then
+    rm -f ~/bin/showcpu
+    echo "linking showcpu"
+    ln -s ~/dotfiles/bin/showcpu ~/bin/showcpu
+fi
+
 if [ ! -h "bin/stack" ]; then
     rm -f ~/bin/stack
     echo "linking stack"
