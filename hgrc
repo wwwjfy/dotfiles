@@ -12,10 +12,9 @@ rebase =
 progress =
 pager =
 transplant =
-histedit = ~/dotfiles/hgext/hg_histedit.py
-hgext.bookmarks =
+histedit =
+bookmarks =
 prompt = ~/dotfiles/hgext/prompt.py
-hgexternals = ~/dotfiles/hgext/hgexternals.py
 purge =
 
 [pager]
