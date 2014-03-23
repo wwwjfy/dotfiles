@@ -13,7 +13,6 @@ progress =
 pager =
 transplant =
 histedit =
-bookmarks =
 prompt = ~/dotfiles/hgext/prompt.py
 purge =
 
