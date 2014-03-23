@@ -3,7 +3,7 @@
 	url = git://github.com/rupa/z.git
 [submodule "lib/friendly-find"]
 	path = lib/friendly-find
-	url = git://github.com/sjl/friendly-find.git
+	url = git://github.com/wwwjfy/friendly-find.git
 [submodule "lib/fish/stack"]
 	path = lib/fish/stack
 	url = https://github.com/wwwjfy/stack.git
