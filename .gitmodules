@@ -10,3 +10,6 @@
 [submodule "lib/fish/z.fish"]
 	path = lib/fish/z.fish
 	url = https://github.com/wwwjfy/z.fish.git
+[submodule "lib/fish/z.py"]
+	path = lib/fish/z.py
+	url = https://github.com/wwwjfy/z.py.git

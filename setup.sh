@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 function link_file() {
     if [[ -a ".$1" ]]; then
