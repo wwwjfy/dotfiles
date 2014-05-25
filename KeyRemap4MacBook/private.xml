@@ -147,13 +147,6 @@
     </item>
 
     <item>
-      <name>Ctrl_R to Option_R</name>
-      <identifier>rf.ctrlR2optionR</identifier>
-      <device_only>DeviceVendor::RealForce, DeviceProduct::RealForce</device_only>
-      <autogen>--KeyToKey-- KeyCode::CONTROL_R, KeyCode::OPTION_R</autogen>
-    </item>
-
-    <item>
       <name>Mouse Keys</name>
       <identifier>rf.mouse_keys</identifier>
       <device_only>DeviceVendor::RealForce, DeviceProduct::RealForce</device_only>
