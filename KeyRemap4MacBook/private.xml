@@ -20,6 +20,16 @@
     <productid>0x010e</productid>
   </deviceproductdef>
 
+  <devicevendordef>
+    <vendorname>Microsoft</vendorname>
+    <vendorid>0x045e</vendorid>
+  </devicevendordef>
+
+  <deviceproductdef>
+    <productname>Microsoft</productname>
+    <productid>0x07a5</productid>
+  </deviceproductdef>
+
   <item>
     <name>Hyper Keys</name>
 
@@ -208,6 +218,109 @@
       <name>Volume Control</name>
       <identifier>rf.volume</identifier>
       <device_only>DeviceVendor::RealForce, DeviceProduct::RealForce</device_only>
+      <autogen>--KeyToKey-- KeyCode::F10, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F10</autogen>
+      <autogen>--KeyToKey-- KeyCode::F11, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F11</autogen>
+      <autogen>--KeyToKey-- KeyCode::F12, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F12</autogen>
+      <autogen>--KeyToConsumer-- KeyCode::F10, ConsumerKeyCode::VOLUME_MUTE</autogen>
+      <autogen>--KeyToConsumer-- KeyCode::F11, ConsumerKeyCode::VOLUME_DOWN</autogen>
+      <autogen>--KeyToConsumer-- KeyCode::F12, ConsumerKeyCode::VOLUME_UP</autogen>
+    </item>
+
+  </item>
+
+  <item>
+    <name>Microsoft Customization</name>
+
+    <item>
+      <name>Command_L to Option_L</name>
+      <identifier>ms.commandL2optionL</identifier>
+      <device_only>DeviceVendor::Microsoft, DeviceProduct::Microsoft</device_only>
+      <autogen>--KeyToKey-- KeyCode::COMMAND_L, KeyCode::OPTION_L</autogen>
+    </item>
+
+    <item>
+      <name>Option_L to Command_L</name>
+      <identifier>ms.optionL2commandL</identifier>
+      <device_only>DeviceVendor::Microsoft, DeviceProduct::Microsoft</device_only>
+      <autogen>--KeyToKey-- KeyCode::OPTION_L, KeyCode::COMMAND_L</autogen>
+    </item>
+
+    <item>
+      <name>Option_R to Command_R</name>
+      <identifier>ms.optionR2commandR</identifier>
+      <device_only>DeviceVendor::Microsoft, DeviceProduct::Microsoft</device_only>
+      <autogen>--KeyToKey-- KeyCode::OPTION_R, KeyCode::COMMAND_R</autogen>
+    </item>
+
+    <item>
+      <name>Application to Option_R</name>
+      <identifier>ms.app2optionR</identifier>
+      <device_only>DeviceVendor::Microsoft, DeviceProduct::Microsoft</device_only>
+      <autogen>--KeyToKey-- KeyCode::PC_APPLICATION, KeyCode::OPTION_R</autogen>
+    </item>
+
+    <item>
+      <name>Mouse Keys</name>
+      <identifier>ms.mouse_keys</identifier>
+      <device_only>DeviceVendor::Microsoft, DeviceProduct::Microsoft</device_only>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_LEFT,
+        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
+
+        KeyCode::VK_MOUSEKEY_LEFT,
+        ModifierFlag::FN
+      </autogen>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_DOWN,
+        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
+
+        KeyCode::VK_MOUSEKEY_DOWN,
+        ModifierFlag::FN
+      </autogen>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_UP,
+        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
+
+        KeyCode::VK_MOUSEKEY_UP,
+        ModifierFlag::FN
+      </autogen>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_RIGHT,
+        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
+
+        KeyCode::VK_MOUSEKEY_RIGHT,
+        ModifierFlag::FN
+      </autogen>
+      <autogen>--KeyToKey-- KeyCode::RETURN, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
+          KeyCode::VK_MOUSEKEY_BUTTON_LEFT, ModifierFlag::FN</autogen>
+    </item>
+
+    <item>
+      <name>Music Controls</name>
+      <appendix>F7 to Music Prev</appendix>
+      <appendix>F8 to Music Play/Pause</appendix>
+      <appendix>F9 to Music Next</appendix>
+      <appendix>Fn + Music Prev to F7</appendix>
+      <appendix>Fn + Music Play/Pause to F8</appendix>
+      <appendix>Fn + Music Next to F9</appendix>
+      <identifier>ms.music_control</identifier>
+      <device_only>DeviceVendor::Microsoft, DeviceProduct::Microsoft</device_only>
+      <autogen>--KeyToKey-- KeyCode::F7, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F7</autogen>
+      <autogen>--KeyToKey-- KeyCode::F8, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F8</autogen>
+      <autogen>--KeyToKey-- KeyCode::F9, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F9</autogen>
+      <autogen>--KeyToConsumer-- KeyCode::F7, ConsumerKeyCode::MUSIC_PREV</autogen>
+      <autogen>--KeyToConsumer-- KeyCode::F8, ConsumerKeyCode::MUSIC_PLAY</autogen>
+      <autogen>--KeyToConsumer-- KeyCode::F9, ConsumerKeyCode::MUSIC_NEXT</autogen>
+    </item>
+
+    <item>
+      <name>Volume Control</name>
+      <identifier>ms.volume</identifier>
+      <device_only>DeviceVendor::Microsoft, DeviceProduct::Microsoft</device_only>
       <autogen>--KeyToKey-- KeyCode::F10, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F10</autogen>
       <autogen>--KeyToKey-- KeyCode::F11, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F11</autogen>
       <autogen>--KeyToKey-- KeyCode::F12, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, KeyCode::F12</autogen>
