@@ -7,6 +7,8 @@
 	ci = commit -v
 	out = !"git fetch; git log origin/HEAD..master"
 	unpushed = log --branches --not --remotes
+	# reset changed files in current directory
+	coc = !"git st . | awk '$1 == \"M\" {print $2}' | xargs git checkout"
 [apply]
 	whitespace = fix
 [push]
