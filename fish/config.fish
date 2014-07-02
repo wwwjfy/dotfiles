@@ -18,6 +18,7 @@ if test (uname) = "Darwin"
     set -gx PATH /usr/local/share/npm/bin $GOPATH/bin $PATH
 end
 set -gx PATH $HOME/bin $PATH
+set -gx PATH node_modules/.bin $PATH
 set -gx NODE_PATH /usr/local/lib/node_modules $NODE_PATH
 set -gx EDITOR vim
 set -gx fish_greeting ''
@@ -123,6 +124,7 @@ function v; vim -p $argv; end
 function v-; vim -; end
 function vf; vim $HOME/.config/fish/config.fish; end
 function vv; vim $HOME/.vimrc; end
+function ve; . ve/bin/activate.fish; end
 function ...; cd ../..; end
 function ....; cd ../../..; end
 function .....; cd ../../../..; end
