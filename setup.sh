@@ -74,9 +74,15 @@ link_file hgignore_global
 
 # fish
 mkdir -p .config/fish/
-ln -s $HOME/dotfiles/fish/config.fish .config/fish/config.fish
-ln -s $HOME/dotfiles/fish/functions .config/fish/functions
-ln -s $HOME/dotfiles/fish/completions .config/fish/completions
+if [[ ! -a ".config/fish/config.fish" ]]; then
+    ln -s $HOME/dotfiles/fish/config.fish .config/fish/config.fish
+fi
+if [[ ! -a ".config/fish/functions" ]]; then
+    ln -s $HOME/dotfiles/fish/functions .config/fish/functions
+fi
+if [[ ! -a ".config/fish/completions" ]]; then
+    ln -s $HOME/dotfiles/fish/completions .config/fish/completions
+fi
 
 if [[ `uname` == "Darwin" ]]; then
     KeyRemap4MacBookPath="$HOME/Library/Application Support/KeyRemap4MacBook"

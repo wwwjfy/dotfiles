@@ -83,46 +83,6 @@
       <autogen>--KeyToConsumer-- KeyCode::KEY_8, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, ConsumerKeyCode::MUSIC_PLAY</autogen>
       <autogen>--KeyToConsumer-- KeyCode::KEY_9, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L, ConsumerKeyCode::MUSIC_NEXT</autogen>
     </item>
-
-    <item>
-      <name>Mouse Keys</name>
-      <identifier>kbt.mouse_keys</identifier>
-      <device_only>DeviceVendor::KBtalKing, DeviceProduct::KBtalKing</device_only>
-      <autogen>
-        --KeyToKey--
-        KeyCode::K,
-        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-
-        KeyCode::VK_MOUSEKEY_LEFT,
-        ModifierFlag::FN
-      </autogen>
-      <autogen>
-        --KeyToKey--
-        KeyCode::L,
-        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-
-        KeyCode::VK_MOUSEKEY_DOWN,
-        ModifierFlag::FN
-      </autogen>
-      <autogen>
-        --KeyToKey--
-        KeyCode::O,
-        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-
-        KeyCode::VK_MOUSEKEY_UP,
-        ModifierFlag::FN
-      </autogen>
-      <autogen>
-        --KeyToKey--
-        KeyCode::SEMICOLON,
-        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-
-        KeyCode::VK_MOUSEKEY_RIGHT,
-        ModifierFlag::FN
-      </autogen>
-      <autogen>--KeyToKey-- KeyCode::RETURN, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-          KeyCode::VK_MOUSEKEY_BUTTON_LEFT, ModifierFlag::FN</autogen>
-    </item>
   </item>
 
   <item>
@@ -154,46 +114,6 @@
       <identifier>rf.app2optionR</identifier>
       <device_only>DeviceVendor::RealForce, DeviceProduct::RealForce</device_only>
       <autogen>--KeyToKey-- KeyCode::PC_APPLICATION, KeyCode::OPTION_R</autogen>
-    </item>
-
-    <item>
-      <name>Mouse Keys</name>
-      <identifier>rf.mouse_keys</identifier>
-      <device_only>DeviceVendor::RealForce, DeviceProduct::RealForce</device_only>
-      <autogen>
-        --KeyToKey--
-        KeyCode::CURSOR_LEFT,
-        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-
-        KeyCode::VK_MOUSEKEY_LEFT,
-        ModifierFlag::FN
-      </autogen>
-      <autogen>
-        --KeyToKey--
-        KeyCode::CURSOR_DOWN,
-        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-
-        KeyCode::VK_MOUSEKEY_DOWN,
-        ModifierFlag::FN
-      </autogen>
-      <autogen>
-        --KeyToKey--
-        KeyCode::CURSOR_UP,
-        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-
-        KeyCode::VK_MOUSEKEY_UP,
-        ModifierFlag::FN
-      </autogen>
-      <autogen>
-        --KeyToKey--
-        KeyCode::CURSOR_RIGHT,
-        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-
-        KeyCode::VK_MOUSEKEY_RIGHT,
-        ModifierFlag::FN
-      </autogen>
-      <autogen>--KeyToKey-- KeyCode::RETURN, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-          KeyCode::VK_MOUSEKEY_BUTTON_LEFT, ModifierFlag::FN</autogen>
     </item>
 
     <item>
@@ -257,46 +177,6 @@
       <identifier>ms.app2optionR</identifier>
       <device_only>DeviceVendor::Microsoft, DeviceProduct::Microsoft</device_only>
       <autogen>--KeyToKey-- KeyCode::PC_APPLICATION, KeyCode::OPTION_R</autogen>
-    </item>
-
-    <item>
-      <name>Mouse Keys</name>
-      <identifier>ms.mouse_keys</identifier>
-      <device_only>DeviceVendor::Microsoft, DeviceProduct::Microsoft</device_only>
-      <autogen>
-        --KeyToKey--
-        KeyCode::CURSOR_LEFT,
-        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-
-        KeyCode::VK_MOUSEKEY_LEFT,
-        ModifierFlag::FN
-      </autogen>
-      <autogen>
-        --KeyToKey--
-        KeyCode::CURSOR_DOWN,
-        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-
-        KeyCode::VK_MOUSEKEY_DOWN,
-        ModifierFlag::FN
-      </autogen>
-      <autogen>
-        --KeyToKey--
-        KeyCode::CURSOR_UP,
-        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-
-        KeyCode::VK_MOUSEKEY_UP,
-        ModifierFlag::FN
-      </autogen>
-      <autogen>
-        --KeyToKey--
-        KeyCode::CURSOR_RIGHT,
-        ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-
-        KeyCode::VK_MOUSEKEY_RIGHT,
-        ModifierFlag::FN
-      </autogen>
-      <autogen>--KeyToKey-- KeyCode::RETURN, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
-          KeyCode::VK_MOUSEKEY_BUTTON_LEFT, ModifierFlag::FN</autogen>
     </item>
 
     <item>
