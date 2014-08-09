@@ -20,6 +20,7 @@ end
 set -gx PATH $HOME/bin $PATH
 set -gx PATH node_modules/.bin $PATH
 set -gx NODE_PATH /usr/local/lib/node_modules $NODE_PATH
+set -gx JAVA_HOME (/usr/libexec/java_home)
 set -gx EDITOR vim
 set -gx fish_greeting ''
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
