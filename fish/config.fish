@@ -137,6 +137,7 @@ make_completion g git
 make_completion h hg
 make_completion va vagrant
 make_completion t tmux
+function em; emacs $argv; end
 function e; emacsclient --alternate-editor="" -c $argv; end
 function ag0; ag --depth=0 $argv; end
 function ta
