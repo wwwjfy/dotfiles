@@ -105,7 +105,7 @@ if [[ `users` != "vagrant" ]]; then
     ssh_pub=AAAAB3NzaC1yc2EAAAADAQABAAABAQDBekVQuNZeXNYbLrs9fgv7q4TguK0jveirhkGLfmAenk0u76g1MqMH7ZNv6K4WXjPItEBFYZtmPi9tDMVwigMIq6qfqiPgBkMAO7ymHLMU04UbWrjxt9Y8ClU2e8Eo2r4wgPkQVbca5rMMClrBvGg6xV5vfo3aJOi/5sXJ9YoJDJ/A0AnvYICaBZ5E61w6eU1+YvPdAxrIqZyxm07d5JDhbilIakhh7f90o5jMbP3vORCq068ockjKgXmwLt9QTOdRhJXt1A5N83Gtmm+d1F4861WpVc4GY2MxX5aUF7j39X/oNIYOxd87l0NXFCbV9aw29ragfezPASbcmBOIK5cd
     cd .ssh
     if ! grep $ssh_pub authorized_keys >/dev/null 2>&1; then
-        echo ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBekVQuNZeXNYbLrs9fgv7q4TguK0jveirhkGLfmAenk0u76g1MqMH7ZNv6K4WXjPItEBFYZtmPi9tDMVwigMIq6qfqiPgBkMAO7ymHLMU04UbWrjxt9Y8ClU2e8Eo2r4wgPkQVbca5rMMClrBvGg6xV5vfo3aJOi/5sXJ9YoJDJ/A0AnvYICaBZ5E61w6eU1+YvPdAxrIqZyxm07d5JDhbilIakhh7f90o5jMbP3vORCq068ockjKgXmwLt9QTOdRhJXt1A5N83Gtmm+d1F4861WpVc4GY2MxX5aUF7j39X/oNIYOxd87l0NXFCbV9aw29ragfezPASbcmBOIK5cd tony@tony-mac >> authorized_keys
+        echo ssh-rsa $ssh_pub tony@tony-mac >> authorized_keys
     fi
 fi
 echo
