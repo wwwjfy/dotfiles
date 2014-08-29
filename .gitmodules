@@ -1,6 +1,3 @@
-[submodule "lib/zsh/z"]
-	path = lib/zsh/z
-	url = git://github.com/rupa/z.git
 [submodule "lib/friendly-find"]
 	path = lib/friendly-find
 	url = git://github.com/wwwjfy/friendly-find.git
