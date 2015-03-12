@@ -86,7 +86,7 @@ if [[ `uname` == "Darwin" ]]; then
     if [[ ! -a "$KeyRemap4MacBookPath" ]]; then
         mkdir -p "$KeyRemap4MacBookPath"
     fi
-    cd $KeyRemap4MacBookPath
+    cd "$KeyRemap4MacBookPath"
     if [[ ! -a "private.xml" ]]; then
         ln -s $HOME/dotfiles/KeyRemap4MacBook/private.xml .
     fi
