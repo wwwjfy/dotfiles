@@ -62,7 +62,6 @@ if [[ ! -a ".vimrc" ]]; then
 fi
 
 # zsh
-link_file zshrc
 link_file tmux.conf
 link_file gitconfig
 link_file gitignore_global
