@@ -113,8 +113,8 @@ end
 # }}}
 
 # Aliases {{{
-function l; command ls $argv; end
-function la; command ls -a $argv; end
+function l; ls $argv; end
+function la; ls -a $argv; end
 function ll; ls -lh $argv; end
 function lla; ls -lha $argv; end
 function cp; command cp -i $argv; end
