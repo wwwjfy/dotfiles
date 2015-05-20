@@ -69,7 +69,7 @@ function fish_prompt
     echo -n " "
     echo -n {$magenta}➜{$normal}
     echo -n " "
-    echo -n $cyan"$PWD"$normal | sed -e "s|$HOME|~|"
+    echo -n $cyan(echo $PWD | sed -e "s|^$HOME|~|")$normal
     git_prompt
     hg_prompt
 
