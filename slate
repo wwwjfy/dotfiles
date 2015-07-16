@@ -12,7 +12,7 @@ layout fullLayout 'Safari':REPEAT ${full}
 layout fullLayout 'Sublime Text':REPEAT ${full}
 layout fullLayout 'Reeder':REPEAT ${full}
 layout fullLayout 'iTunes':REPEAT ${full}
-layout fullLayout 'iTerm':REPEAT ${full}
+layout fullLayout 'iTerm2':REPEAT ${full}
 layout fullLayout 'Sparrow':REPEAT ${full}
 layout fullLayout 'Airmail':REPEAT ${full}
 layout fullLayout 'Numbers':REPEAT ${full}

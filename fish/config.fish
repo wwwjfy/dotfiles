@@ -11,7 +11,6 @@ if which gem > /dev/null
         set -gx PATH $path/bin $PATH
     end
 end
-set -gx PATH /usr/local/share/python /usr/local/share/python3 $PATH
 if test (uname) = "Darwin"
     set -gx PATH /usr/local/opt/coreutils/libexec/gnubin (brew --prefix ruby)/bin $PATH
     set -gx GOPATH /usr/local/opt/go
@@ -54,12 +53,32 @@ end
 
 set github_contrib_file $HOME/.config/fish/github_contribution
 
+function readable_time
+    set -l tmp $argv[1]
+    set -l days (math "$tmp / 60 / 60 / 24")
+    set -l hours (math "$tmp / 60 / 60 % 24")
+    set -l minutes (math "$tmp / 60 % 60")
+    set -l seconds (math "$tmp % 60")
+    if test $days -gt 0
+        echo -n $days"d "
+    end
+    if test $hours -gt 0
+        echo -n $hours"h "
+    end
+    if test $minutes -gt 0
+        echo -n $minutes"m "
+    end
+    echo $seconds"s"
+end
+
 function fish_prompt
     set last_status $status
     z --add "$PWD"
 
-    if set -q CMD_DURATION
-        echo (set_color 555)"->"(set_color normal) $CMD_DURATION
+    if test $CMD_DURATION
+        if test $CMD_DURATION -gt (math "1000")
+            echo (set_color 555)"->"(set_color normal) (readable_time (math "$CMD_DURATION / 1000"))
+        end
     end
     echo -n ╭─ {$magenta}{$normal}
     echo -n " "
@@ -135,7 +154,6 @@ function ffind; command ffind -f $argv; end
 function top; htop; end
 make_completion g git
 make_completion h hg
-make_completion va vagrant
 make_completion t tmux
 function em; emacs $argv; end
 function e; emacsclient --alternate-editor="" -c $argv; end
