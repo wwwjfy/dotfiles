@@ -76,7 +76,7 @@ function fish_prompt
     z --add "$PWD"
 
     if test $CMD_DURATION
-        if test $CMD_DURATION -gt (math "1000")
+        if test $CMD_DURATION -gt 5000
             echo (set_color 555)"->"(set_color normal) (readable_time (math "$CMD_DURATION / 1000"))
         end
     end
