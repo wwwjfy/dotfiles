@@ -61,7 +61,7 @@ if [[ ! -a ".vimrc" ]]; then
     ln -s .vim/vimrc .vimrc
 fi
 
-# zsh
+# configuration files
 link_file tmux.conf
 link_file gitconfig
 link_file gitignore_global
@@ -102,6 +102,22 @@ if [[ `users` != "vagrant" ]]; then
     cd .ssh
     if ! grep $ssh_pub authorized_keys >/dev/null 2>&1; then
         echo ssh-rsa $ssh_pub tony@tony-mac >> authorized_keys
+    fi
+fi
+
+if which lsb_release; then
+    if [[ $(lsb_release -i) =~ "Ubuntu" ]]; then
+        sudo apt-get update
+        sudo apt-get install -y software-properties-common aptitude mercurial tmux mosh fail2ban silversearcher-ag tree
+        if [[ ! $(grep tony /etc/passwd) =~ "fish" ]]; then
+            sudo apt-add-repository -y ppa:fish-shell/release-2
+            sudo aptitude update
+            sudo aptitude -y install fish
+            chsh -s /usr/bin/fish
+        fi
+        new_passwd=$(uuidgen)
+        echo "${new_passwd}\n${new_passwd}" | sudo passwd tony
+        echo "New password: ${new_passwd}"
     fi
 fi
 echo
