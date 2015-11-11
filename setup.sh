@@ -116,7 +116,7 @@ if which lsb_release; then
             chsh -s /usr/bin/fish
         fi
         new_passwd=$(uuidgen)
-        echo "${new_passwd}\n${new_passwd}" | sudo passwd tony
+        echo -e "${new_passwd}\n${new_passwd}" | sudo passwd tony
         echo "New password: ${new_passwd}"
     fi
 fi
