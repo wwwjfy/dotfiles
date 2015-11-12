@@ -108,7 +108,7 @@ fi
 if which lsb_release; then
     if [[ $(lsb_release -i) =~ "Ubuntu" ]]; then
         sudo apt-get update
-        sudo apt-get install -y software-properties-common aptitude mercurial tmux mosh fail2ban silversearcher-ag tree
+        sudo apt-get install -y software-properties-common aptitude mercurial mosh fail2ban silversearcher-ag tree htop
         if [[ ! $(grep tony /etc/passwd) =~ "fish" ]]; then
             sudo apt-add-repository -y ppa:fish-shell/release-2
             sudo aptitude update
