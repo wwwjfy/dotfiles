@@ -13,6 +13,7 @@
 	whitespace = fix
 [push]
 	default = upstream
+	recurseSubmodules = check
 [core]
 	excludesfile = ~/.gitignore_global
 [log]
