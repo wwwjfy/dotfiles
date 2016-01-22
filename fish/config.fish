@@ -152,9 +152,8 @@ function ....; cd ../../..; end
 function .....; cd ../../../..; end
 function ffind; command ffind -f $argv; end
 function top; htop; end
-make_completion g git
-make_completion h hg
-make_completion t tmux
+abbr -a h hg
+abbr -a t tmux
 function em; emacs $argv; end
 function e; emacsclient --alternate-editor="" -c $argv; end
 function ag0; ag --depth=0 $argv; end
@@ -165,6 +164,14 @@ function ta
         tmux attach $argv
     end
 end
+# Git {{{
+abbr -a g git
+abbr -a gc "git commit -v"
+abbr -a gca "git commit -v -a"
+abbr -a gl "git pull"
+abbr -a glg "git log --graph --decorate"
+abbr -a glgg "git log --graph --decorate --all"
+# }}}
 # }}}
 
 if test (uname) = "Darwin"
