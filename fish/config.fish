@@ -8,7 +8,9 @@ end
 set -gx PATH /usr/local/sbin /usr/local/bin $PATH
 if which gem > /dev/null
     for path in (gem environment gempath | tr ':' '\n')
-        set -gx PATH $path/bin $PATH
+        if test -d $path/bin
+            set -gx PATH $path/bin $PATH
+        end
     end
 end
 if test (uname) = "Darwin"
