@@ -1,6 +1,7 @@
 [user]
 	name = Tony Wang
 	email = wwwjfy@gmail.com
+	signingkey = 624D973D837983DF
 [alias]
 	co = checkout
 	st = status -sb --ignore-submodules=untracked
@@ -23,3 +24,7 @@
 [rerere]
 	enabled = true
 	autoupdate = true
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2
