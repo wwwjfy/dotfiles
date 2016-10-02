@@ -173,6 +173,7 @@ abbr -a gca "git commit -v -a"
 abbr -a gl "git pull"
 abbr -a glg "git log --graph --decorate"
 abbr -a glgg "git log --graph --decorate --all"
+abbr -a gpf "git push --force-with-lease"
 # }}}
 # }}}
 
