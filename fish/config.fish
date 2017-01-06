@@ -14,7 +14,7 @@ if which gem > /dev/null
     end
 end
 if test (uname) = "Darwin"
-    set -gx PATH /usr/local/opt/coreutils/libexec/gnubin (brew --prefix ruby)/bin $PATH
+    set -gx PATH /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/ruby/bin $PATH
     set -gx GOPATH /usr/local/opt/go
     set -gx PATH /usr/local/share/npm/bin $GOPATH/bin $PATH
 end
