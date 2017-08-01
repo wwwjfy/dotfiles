@@ -49,10 +49,6 @@ function git_prompt
     end
 end
 
-function hg_prompt
-    hg prompt " hg:($red{branch}$normal{status|modified})" ^/dev/null
-end
-
 set github_contrib_file $HOME/.config/fish/github_contribution
 
 function readable_time
@@ -92,7 +88,6 @@ function fish_prompt
     echo -n " "
     echo -n $cyan(echo $PWD | sed -e "s|^$HOME|~|")$normal
     git_prompt
-    hg_prompt
 
     # if test (uname) = "Darwin"
     #     if [ -r $github_contrib_file ]
