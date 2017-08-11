@@ -22,10 +22,7 @@
 	decorate = true
 [color]
 	ui = true
-[rerere]
-	enabled = true
-	autoupdate = true
 [commit]
 	gpgsign = true
 [gpg]
-	program = gpg2
+	program = gpg
