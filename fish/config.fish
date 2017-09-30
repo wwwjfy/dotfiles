@@ -14,9 +14,8 @@ if which gem > /dev/null
     end
 end
 if test (uname) = "Darwin"
-    set -gx PATH /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/ruby/bin $PATH
+    set -gx PATH /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/ruby/bin $PATH
     set -gx GOPATH /usr/local/opt/go
-    set -gx PATH /usr/local/share/npm/bin $GOPATH/bin $PATH
 end
 set -gx PATH $HOME/bin $PATH
 set -gx PATH node_modules/.bin $PATH
@@ -172,26 +171,6 @@ abbr -a gpf "git push --force-with-lease"
 # }}}
 # }}}
 
-if test (uname) = "Darwin"
-    # if test ! -e $github_contrib_file
-    #     touch $github_contrib_file
-    # end
-    # if test (/usr/bin/stat -f "%m" $github_contrib_file) -lt (expr (/bin/date "+%s") - 3600)
-    #     fish ~/dotfiles/fish/get_github_contribution wwwjfy $github_contrib_file > /dev/null ^/dev/null &
-    # end
-    set brew_update_file $HOME/.config/fish/brew_update
-    if test ! -e $brew_update_file
-        echo (/bin/date "+%s") > $brew_update_file
-    end
-    if test (/usr/bin/stat -f "%m" $brew_update_file) -lt (expr (/bin/date "+%s") - 3600)
-        touch $brew_update_file
-        brew update > /dev/null ^/dev/null &
-    end
-    if test (cat $brew_update_file) -lt (expr (/bin/date "+%s") - 21600)
-        echo (/bin/date "+%s") > $brew_update_file
-        brew outdated
-    end
-end
 
 if test -s $HOME/.config/fish/local.fish
     . $HOME/.config/fish/local.fish
