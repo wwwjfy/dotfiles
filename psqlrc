@@ -1,0 +1,4 @@
+\set HISTCONTROL ignoredups
+\timing
+\pset null '(null)'
+\x auto

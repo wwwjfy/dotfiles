@@ -67,6 +67,7 @@ link_file gitconfig
 link_file gitignore_global
 link_file hgrc
 link_file hgignore_global
+link_file psqlrc
 
 # fish
 mkdir -p .config/fish/
