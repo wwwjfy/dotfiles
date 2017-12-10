@@ -82,15 +82,12 @@ if [[ ! -a ".config/fish/completions" ]]; then
 fi
 
 if [[ `uname` == "Darwin" ]]; then
-    KeyRemap4MacBookPath="$HOME/Library/Application Support/KeyRemap4MacBook"
-    if [[ ! -a "$KeyRemap4MacBookPath" ]]; then
-        mkdir -p "$KeyRemap4MacBookPath"
+    if [[ ! -a "$HOME/.config/karabiner/karabiner.json" ]]; then
+        mkdir -p $HOME/.config/karabiner
+        cd $HOME/.config/karabiner
+        ln -s $HOME/dotfiles/karabiner.json .
+        cd $HOME
     fi
-    cd "$KeyRemap4MacBookPath"
-    if [[ ! -a "private.xml" ]]; then
-        ln -s $HOME/dotfiles/KeyRemap4MacBook/private.xml .
-    fi
-    cd $HOME
     link_file slate
 fi
 
