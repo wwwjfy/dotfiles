@@ -148,7 +148,6 @@ function ....; cd ../../..; end
 function .....; cd ../../../..; end
 function ffind; command ffind -f $argv; end
 function top; htop; end
-abbr -a h hg
 abbr -a t tmux
 function em; emacs $argv; end
 function e; emacsclient --alternate-editor="" -c $argv; end
