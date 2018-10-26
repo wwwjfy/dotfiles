@@ -91,7 +91,6 @@ if [[ `uname` == "Darwin" ]]; then
         ln -s $HOME/dotfiles/karabiner.json .
         cd $HOME
     fi
-    link_file slate
 fi
 
 if [[ `users` != "vagrant" ]]; then
