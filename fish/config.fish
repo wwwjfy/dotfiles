@@ -15,17 +15,19 @@ if which gem > /dev/null
 end
 if test (uname) = "Darwin"
     set -gx PATH /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/ruby/bin $PATH
-    set -gx GOPATH /usr/local/opt/go
+    set -gx GOPATH $HOME/go
 end
 set -gx PATH $HOME/bin $PATH
 set -gx PATH node_modules/.bin $PATH
 set -gx NODE_PATH /usr/local/lib/node_modules $NODE_PATH
 if test -f /usr/libexec/java_home
     set -gx JAVA_HOME (/usr/libexec/java_home)
+    set -gx PATH $JAVA_HOME/bin $PATH
 end
 set -gx EDITOR vim
 set -gx fish_greeting ''
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
+set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgreprc
 eval (dircolors -c $HOME/dotfiles/dircolors.ansi-dark)
 # }}}
 
@@ -48,8 +50,6 @@ function git_prompt
     end
 end
 
-set github_contrib_file $HOME/.config/fish/github_contribution
-
 function readable_time
     set -l tmp $argv[1]
     set -l days (math "$tmp / 60 / 60 / 24")
@@ -70,7 +70,7 @@ end
 
 function fish_prompt
     set last_status $status
-    z --add "$PWD"
+    z --add "$PWD" &
 
     if test $CMD_DURATION
         if test $CMD_DURATION -gt 5000
@@ -87,20 +87,6 @@ function fish_prompt
     echo -n " "
     echo -n $cyan(echo $PWD | sed -e "s|^$HOME|~|")$normal
     git_prompt
-
-    # if test (uname) = "Darwin"
-    #     if [ -r $github_contrib_file ]
-    #         set -l github_contrib (cat $github_contrib_file)
-    #         if [ -n $github_contrib ]
-    #             echo -n " github:("{$green}{$github_contrib}{$normal}")"
-    #         end
-    #     end
-    # end
-
-    set -l scount (stack count)
-    if [ $scount != "0" ]
-        echo -n " [$scount]" (stack last)
-    end
 
     echo
 
@@ -151,7 +137,8 @@ function top; htop; end
 abbr -a t tmux
 function em; emacs $argv; end
 function e; emacsclient --alternate-editor="" -c $argv; end
-function ag0; ag --depth=0 $argv; end
+function ag; command rg $argv; end
+function ag0; command rg --max-depth=1 $argv; end
 function ta
     if [ (tmux ls ^/dev/null | wc -l) = "0" ]
         tmux new $argv

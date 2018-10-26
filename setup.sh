@@ -80,6 +80,9 @@ fi
 if [[ ! -a ".config/fish/completions" ]]; then
     ln -s $HOME/dotfiles/fish/completions .config/fish/completions
 fi
+if [[ ! -a ".config/ripgreprc" ]]; then
+    ln -s $HOME/dotfiles/ripgreprc .config/ripgreprc
+fi
 
 if [[ `uname` == "Darwin" ]]; then
     if [[ ! -a "$HOME/.config/karabiner/karabiner.json" ]]; then
