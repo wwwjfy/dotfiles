@@ -22,7 +22,17 @@
 	decorate = true
 [color]
 	ui = true
+[color.diff]
+	meta = "yellow"
+	frag = "magenta bold"
+	;commit = "yellow bold"
+	old = "red bold"
+	;new = "green bold"
+	whitespace = "red reverse"
 [commit]
 	gpgsign = true
 [gpg]
 	program = gpg
+[pager]
+	diff = diff-so-fancy | less --tabs=1,5 -RFX
+	show = diff-so-fancy | less --tabs=1,5 -RFX
