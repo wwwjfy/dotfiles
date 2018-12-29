@@ -5,24 +5,25 @@ end
 . $HOME/dotfiles/lib/fish/z.py/z.fish
 
 # Environment {{{
-set -gx PATH /usr/local/sbin /usr/local/bin $PATH
+set -p PATH /usr/local/sbin /usr/local/bin
 if which gem > /dev/null
     for path in (gem environment gempath | tr ':' '\n')
         if test -d $path/bin
-            set -gx PATH $path/bin $PATH
+            set -p PATH $path/bin
         end
     end
 end
 if test (uname) = "Darwin"
-    set -gx PATH /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/ruby/bin $PATH
+    set -p PATH /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/ruby/bin
+    set -gx GOROOT (brew --prefix go)/libexec
     set -gx GOPATH $HOME/go
 end
-set -gx PATH $HOME/bin $PATH
-set -gx PATH node_modules/.bin $PATH
+set -p PATH $HOME/bin
+set -p PATH node_modules/.bin
 set -gx NODE_PATH /usr/local/lib/node_modules $NODE_PATH
 if test -f /usr/libexec/java_home
     set -gx JAVA_HOME (/usr/libexec/java_home)
-    set -gx PATH $JAVA_HOME/bin $PATH
+    set -p PATH $JAVA_HOME/bin
 end
 set -gx EDITOR vim
 set -gx fish_greeting ''
@@ -52,10 +53,10 @@ end
 
 function readable_time
     set -l tmp $argv[1]
-    set -l days (math "$tmp / 60 / 60 / 24")
-    set -l hours (math "$tmp / 60 / 60 % 24")
-    set -l minutes (math "$tmp / 60 % 60")
-    set -l seconds (math "$tmp % 60")
+    set -l days (math --scale 0 "$tmp / 60 / 60 / 24")
+    set -l hours (math --scale 0 "$tmp / 60 / 60 % 24")
+    set -l minutes (math --scale 0 "$tmp / 60 % 60")
+    set -l seconds (math --scale 0 "$tmp % 60")
     if test $days -gt 0
         echo -n $days"d "
     end
@@ -74,7 +75,7 @@ function fish_prompt
 
     if test $CMD_DURATION
         if test $CMD_DURATION -gt 5000
-            echo (set_color 555)"->"(set_color normal) (readable_time (math "$CMD_DURATION / 1000"))
+            echo (set_color 555)"->"(set_color normal) (readable_time (math --scale 0 "$CMD_DURATION / 1000"))
         end
     end
     echo -n ╭─ {$magenta}{$normal}
@@ -105,40 +106,36 @@ function fish_prompt
 end
 
 function fish_title
-    if test $_ = "fish"
+    if test (status current-command) = "fish"
         prompt_pwd
     else
-        echo $_ "["(basename (prompt_pwd))"]"
+        echo (status current-command) "["(basename (prompt_pwd))"]"
     end
 end
 # }}}
 
 # Aliases {{{
-function l; ls $argv; end
-function la; ls -a $argv; end
-function ll; ls -lh $argv; end
-function lla; ls -lha $argv; end
-function cp; command cp -i $argv; end
-function mv; command mv -i $argv; end
-function grep; command grep --color=auto $argv; end
+alias l='ls'
+alias la='ls -a'
+alias ll='ls -lh'
+alias lla='ls -lha'
+alias cp='cp -i'
+alias mv='mv -i'
+alias grep='grep --color=auto'
 if test (uname) = "Darwin"
-    function find; command gfind $argv; end
+    alias find='gfind'
 end
-function v; vim -p $argv; end
-function v-; vim -; end
-function vf; vim $HOME/.config/fish/config.fish; end
-function vv; vim $HOME/.vimrc; end
-function ve; . ve/bin/activate.fish; end
-function ...; cd ../..; end
-function ....; cd ../../..; end
-function .....; cd ../../../..; end
-function ffind; command ffind -f $argv; end
-function top; htop; end
+alias v='vim -p'
+alias v-='vim -'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias top='htop'
 abbr -a t tmux
-function em; emacs $argv; end
-function e; emacsclient --alternate-editor="" -c $argv; end
-function ag; command rg $argv; end
-function ag0; command rg --max-depth=1 $argv; end
+alias em='emacs'
+alias e='emacsclient --alternate-editor="" -c'
+alias ag='rg'
+alias ag0='rg --max-depth=1'
 function ta
     if [ (tmux ls ^/dev/null | wc -l) = "0" ]
         tmux new $argv
