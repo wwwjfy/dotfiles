@@ -25,12 +25,6 @@ if [[ ! -a "bin" ]]; then
     mkdir bin
 fi
 
-if [ ! -h "bin/ffind" ]; then
-    rm -f ~/bin/ffind
-    echo "linking ffind"
-    ln -s ~/dotfiles/lib/friendly-find/ffind ~/bin/ffind
-fi
-
 if [ ! -h "bin/showmem" ]; then
     rm -f ~/bin/showmem
     echo "linking showmem"
@@ -110,8 +104,9 @@ fi
 
 if which lsb_release; then
     if [[ $(lsb_release -i) =~ "Ubuntu" ]]; then
+        sudo add-apt-repository -y ppa:neovim-ppa/stable
         sudo apt-get update
-        sudo apt-get install -y software-properties-common aptitude mercurial mosh fail2ban silversearcher-ag tree htop libevent-dev libncurses5-dev build-essential
+        sudo apt-get install -y software-properties-common aptitude mercurial mosh fail2ban silversearcher-ag tree htop libevent-dev libncurses5-dev build-essential neovim
         if [[ ! $(grep tony /etc/passwd) =~ "fish" ]]; then
             sudo apt-add-repository -y ppa:fish-shell/release-3
             sudo aptitude update
