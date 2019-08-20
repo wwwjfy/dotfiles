@@ -6,17 +6,17 @@ end
 
 # Environment {{{
 set -p PATH /usr/local/sbin /usr/local/bin
+if test (uname) = "Darwin"
+    set -p PATH /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/ruby/bin
+    set -gx GOROOT (brew --prefix go)/libexec
+    set -gx GOPATH $HOME/go
+end
 if which gem > /dev/null
     for path in (gem environment gempath | tr ':' '\n')
         if test -d $path/bin
             set -p PATH $path/bin
         end
     end
-end
-if test (uname) = "Darwin"
-    set -p PATH /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/ruby/bin
-    set -gx GOROOT (brew --prefix go)/libexec
-    set -gx GOPATH $HOME/go
 end
 set -p PATH $HOME/bin
 set -p PATH node_modules/.bin
