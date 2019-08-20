@@ -1,0 +1,122 @@
+local IDEKey = "shortcutIDE"
+local chooserCallback = {
+    reload = function()
+        hs.reload()
+        hs.notify.show("HammerSpoon reloaded", "", "")
+    end,
+    closeNotifications = function()
+        hs.osascript.applescript([[
+            tell application "System Events"
+                tell process "NotificationCenter"
+                    set theWindows to every window
+                    repeat with i from 1 to number of items in theWindows
+                        set this_item to item 1 of theWindows
+                        click button 1 of this_item
+                        delay 0.2
+                    end repeat
+                end tell
+            end tell]])
+    end,
+    chooseIDE = function()
+        chooser = hs.chooser.new(function(choice)
+            if not choice then
+                return
+            end
+            hs.settings.set(IDEKey, choice["bundleID"])
+        end)
+        chooser:queryChangedCallback(function(query)
+            selectByIndex(chooser, query)
+        end)
+        chooser:choices({
+            {
+                text="1. PyCharm",
+                bundleID="com.jetbrains.pycharm"
+            },
+            {
+                text="2. GoLand",
+                bundleID="com.jetbrains.goland"
+            }
+        })
+        hs.timer.doAfter(0.1, function()
+            chooser:show()
+        end)
+    end,
+    setDefaultBrowser = function()
+        chooser = hs.chooser.new(function(choice)
+            if not choice then
+                return
+            end
+            hs.urlevent.setDefaultHandler("http", choice["bundleID"])
+        end)
+        chooser:queryChangedCallback(function(query)
+            selectByIndex(chooser, query)
+        end)
+        chooser:choices({
+            {
+                text="1. Safari",
+                bundleID="com.apple.Safari"
+            },
+            {
+                text="2. Firefox",
+                bundleID="org.mozilla.firefox"
+            }
+        })
+        hs.timer.doAfter(0.1, function()
+            chooser:show()
+        end)
+    end
+}
+
+hs.hotkey.bind({"ctrl", "cmd"}, "k", function()
+    local chooser = hs.chooser.new(function(choice)
+        if not choice then
+            return
+        end
+        chooserCallback[choice["id"]]()
+    end)
+    chooser:queryChangedCallback(function(query)
+        selectByIndex(chooser, query)
+    end)
+    chooser:choices({
+        {
+            id="reload",
+            text="1. Reload HammerSpoon"
+        },
+        {
+            id="closeNotifications",
+            text="2. Close notifications"
+        },
+        {
+            id="chooseIDE",
+            text="3. PyCharm or GoLand"
+        },
+        {
+            id="setDefaultBrowser",
+            text="4. Set default browser"
+        }
+    })
+    chooser:show()
+end)
+
+hs.hotkey.bind({"shift", "cmd", "ctrl", "alt"}, "p", function()
+    local IDE = hs.settings.get(IDEKey)
+    if IDE == "" then
+        return
+    end
+    local running = hs.application.applicationsForBundleID(IDE)
+    if #running > 0 then
+        hs.application.launchOrFocusByBundleID(running[1]:bundleID())
+    end
+end)
+
+function selectByIndex(chooser, query)
+    local selected = tonumber(query)
+    if not selected then
+        return
+    end
+    if selected > chooser:rows() or selected < 1 then
+        return
+    end
+    chooser:select(selected)
+end
+
