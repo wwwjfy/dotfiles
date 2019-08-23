@@ -63,7 +63,7 @@ for _, v in ipairs(runningHotkeyApps) do
     hs.hotkey.bind({"shift", "cmd", "ctrl", "alt"}, v.key, function()
         local running = hs.application.applicationsForBundleID(v.id)
         if #running > 0 then
-            hs.application.launchOrFocusByBundleID(running[1]:bundleID())
+            hs.application.launchOrFocusByBundleID(v.id)
         end
     end)
 end

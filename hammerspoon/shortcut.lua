@@ -64,6 +64,23 @@ local chooserCallback = {
         hs.timer.doAfter(0.1, function()
             chooser:show()
         end)
+    end,
+    doNotDisturb = function()
+        local function toggleDoNotDisturb()
+            local origPos = hs.mouse.getAbsolutePosition()
+            local screenFrame = hs.screen.mainScreen():fullFrame()
+            hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["leftMouseDown"], hs.geometry.point(screenFrame.w-30,10), {alt=true}):post()
+            hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["leftMouseUp"], hs.geometry.point(screenFrame.w-30,10), {alt=true}):post()
+            hs.mouse.setAbsolutePosition(origPos)
+        end
+        toggleDoNotDisturb()
+        hs.timer.doAfter(25 * 60, function()
+            local output = hs.execute("defaults -currentHost read com.apple.notificationcenterui doNotDisturb")
+            local isOn = output:gsub("%s+$", "") == "1"
+            if isOn then
+                toggleDoNotDisturb()
+            end
+        end)
     end
 }
 
@@ -93,6 +110,10 @@ hs.hotkey.bind({"ctrl", "cmd"}, "k", function()
         {
             id="setDefaultBrowser",
             text="4. Set default browser"
+        },
+        {
+            id="doNotDisturb",
+            text="5. Do not disturb for 25 min"
         }
     })
     chooser:show()
@@ -105,7 +126,7 @@ hs.hotkey.bind({"shift", "cmd", "ctrl", "alt"}, "p", function()
     end
     local running = hs.application.applicationsForBundleID(IDE)
     if #running > 0 then
-        hs.application.launchOrFocusByBundleID(running[1]:bundleID())
+        hs.application.launchOrFocusByBundleID(IDE)
     end
 end)
 
