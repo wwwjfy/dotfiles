@@ -2,7 +2,7 @@ require("application")
 require("layout")
 require("shortcut")
 
-pcall(require, "local")
+require("local")
 
 -- silence noise
 hs.hotkey.setLogLevel(2)

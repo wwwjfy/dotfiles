@@ -54,7 +54,7 @@ hs.hotkey.bind({"shift", "cmd"}, "d", function()
 end)
 
 runningHotkeyApps = {
-    {key = "c", id = "com.google.Chrome"},
+    {key = "c", id = "org.mozilla.firefox"},
     {key = "s", id = "com.apple.Safari"},
     {key = "x", id = "com.apple.dt.Xcode"},
 }

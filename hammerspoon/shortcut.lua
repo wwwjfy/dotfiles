@@ -69,8 +69,8 @@ local chooserCallback = {
         local function toggleDoNotDisturb()
             local origPos = hs.mouse.getAbsolutePosition()
             local screenFrame = hs.screen.mainScreen():fullFrame()
-            hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["leftMouseDown"], hs.geometry.point(screenFrame.w-30,10), {alt=true}):post()
-            hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["leftMouseUp"], hs.geometry.point(screenFrame.w-30,10), {alt=true}):post()
+            hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["leftMouseDown"], hs.geometry.point(screenFrame.w-30,10), {"alt"}):post()
+            hs.eventtap.event.newMouseEvent(hs.eventtap.event.types["leftMouseUp"], hs.geometry.point(screenFrame.w-30,10), {"alt"}):post()
             hs.mouse.setAbsolutePosition(origPos)
         end
         toggleDoNotDisturb()
