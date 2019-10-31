@@ -49,6 +49,8 @@ if [[ ! -a ".vim" ]]; then
     cd .vim
     git submodule update --init
     cd $HOME
+    mkdir -p .config
+    ln -s $HOME/.vim .config/nvim
 fi
 
 if [[ ! -a ".vimrc" ]]; then
