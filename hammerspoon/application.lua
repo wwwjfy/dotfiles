@@ -37,7 +37,7 @@ hyperHotkeyApps = {
     {key = "i", path = "/Applications/iTerm.app"},
     {key = "r", path = "/Users/tony/Applications/StringerX.app"},
     {key = "t", path = "/Applications/Tweetbot.app"},
-    {key = "m", path = "/Applications/Mail.app"},
+    {key = "m", path = "/System/Applications/Mail.app"},
     {key = "f", path = "/System/Library/CoreServices/Finder.app"},
     {key = "e", path = "/Applications/Sublime Text.app"},
     {key = "u", path = "/Applications/Things3.app"},
