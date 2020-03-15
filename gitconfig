@@ -4,7 +4,7 @@
 	signingkey = 624D973D837983DF
 [alias]
 	co = checkout
-	st = status -sb --ignore-submodules=untracked
+	st = status -sb --ignore-submodules=untracked -uno
 	ci = commit -v
 	out = !"git fetch; git log origin/HEAD..master"
 	unpushed = log --branches --not --remotes
