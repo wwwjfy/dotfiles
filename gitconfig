@@ -1,6 +1,8 @@
 [user]
+	useConfigOnly = true
+[user "default"]
 	name = Tony Wang
-	email = wwwjfy@gmail.com
+	email = tony@initialcommit.net
 	signingkey = 624D973D837983DF
 [alias]
 	co = checkout
@@ -11,6 +13,8 @@
 	# reset changed files in current directory
 	coc = !"git st . | awk '$1 == \"M\" {print $2}' | xargs git checkout"
     pushf = push --force-with-lease
+	sw = switch
+	identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; [ \"$(git config user.$1.signingkey)\" ] && git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
 [apply]
 	whitespace = fix
 [push]
@@ -29,6 +33,11 @@
 	old = "red bold"
 	;new = "green bold"
 	whitespace = "red reverse"
+[color.diff-highlight]
+	oldNormal = "red bold"
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green 22"
 [commit]
 	gpgsign = true
 [gpg]
@@ -38,3 +47,7 @@
 	show = diff-so-fancy | less --tabs=1,5 -RFX
 [diff]
 	noprefix = true
+[protocol]
+	version = 2
+[pull]
+	ff = only
