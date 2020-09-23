@@ -3,7 +3,7 @@
 [user "default"]
 	name = Tony Wang
 	email = tony@initialcommit.net
-	signingkey = 624D973D837983DF
+	signingkey = B9CC2434F14C9B55
 [alias]
 	co = checkout
 	st = status -sb --ignore-submodules=untracked -uno

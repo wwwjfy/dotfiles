@@ -18,6 +18,8 @@ application.hotkey("Mail", {"cmd"}, "r", function(app)
 end)
 application.hotkey("Safari", {"cmd"}, "q", function(app)
 end)
+application.hotkey("Firefox", {"cmd"}, "q", function(app)
+end)
 application.hotkey("Finder", {"cmd"}, "s", function(app)
     local _, output, _ = hs.osascript.applescript([[tell application "Finder"
     if (count windows) > 0 then

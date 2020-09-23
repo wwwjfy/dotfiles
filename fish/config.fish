@@ -7,7 +7,7 @@ end
 # Environment {{{
 set -p PATH /usr/local/sbin /usr/local/bin
 if test (uname) = "Darwin"
-    set -p PATH /usr/local/opt/gnu-sed/libexec/gnubin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/ruby/bin
+    set -p PATH /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/ruby/bin
     set -gx GOROOT (brew --prefix go)/libexec
     set -gx GOPATH $HOME/go
 end
