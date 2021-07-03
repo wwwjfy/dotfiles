@@ -25,7 +25,7 @@ if test -f /usr/libexec/java_home
     set -gx JAVA_HOME (/usr/libexec/java_home)
     set -p PATH $JAVA_HOME/bin
 end
-set -gx EDITOR vim
+set -gx EDITOR nvim
 set -gx fish_greeting ''
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgreprc
@@ -43,7 +43,7 @@ set red (set_color red)
 
 function git_prompt
     if git rev-parse --show-toplevel >/dev/null 2>&1
-        echo -n " git:("{$red}(git rev-parse --abbrev-ref HEAD ^/dev/null){$normal}")"
+        echo -n " git:("{$red}(git rev-parse --abbrev-ref HEAD 2>/dev/null){$normal}")"
         set -l dirty (git status -s -uno --ignored=no 2>/dev/null)
         if test -n "$dirty"
             echo -n " "{$yellow}✗{$normal}
@@ -137,7 +137,7 @@ alias e='emacsclient --alternate-editor="" -c'
 alias ag='rg'
 alias ag0='rg --max-depth=1'
 function ta
-    if [ (tmux ls ^/dev/null | wc -l) = "0" ]
+    if [ (tmux ls 2>/dev/null | wc -l) = "0" ]
         tmux new $argv
     else
         tmux attach $argv
