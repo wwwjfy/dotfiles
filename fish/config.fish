@@ -29,6 +29,7 @@ set -gx EDITOR nvim
 set -gx fish_greeting ''
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgreprc
+set -gx GPG_TTY (tty)
 eval (dircolors -c $HOME/dotfiles/dircolors.ansi-dark)
 # }}}
 
@@ -78,7 +79,7 @@ function fish_prompt
             echo (set_color 555)"->"(set_color normal) (readable_time (math --scale 0 "$CMD_DURATION / 1000"))
         end
     end
-    echo -n ╭─ {$magenta}{$normal}
+    echo -n ╭─
     echo -n " "
     echo -n {$green}[(date +%H:%M:%S)]{$normal}
     echo -n " "
