@@ -1,5 +1,5 @@
 hs.hotkey.bind({"ctrl"}, ",", function()
-    local win = hs.window.focusedWindow()
+    local win = hs.window.frontmostWindow()
     local screen = win:screen()
     win:setFrame(screen:frame())
 end)
