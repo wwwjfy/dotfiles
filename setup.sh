@@ -106,7 +106,6 @@ fi
 
 if which lsb_release; then
     if [[ $(lsb_release -i) =~ "Ubuntu" ]]; then
-        sudo add-apt-repository -y ppa:neovim-ppa/stable
         sudo apt-get update
         sudo apt-get install -y software-properties-common aptitude mercurial mosh fail2ban silversearcher-ag tree htop libevent-dev libncurses5-dev build-essential neovim
         if [[ ! $(grep tony /etc/passwd) =~ "fish" ]]; then
