@@ -20,6 +20,7 @@
 [push]
 	default = upstream
 	recurseSubmodules = check
+	autoSetupRemote = true
 [core]
 	excludesfile = ~/.gitignore_global
 [log]
