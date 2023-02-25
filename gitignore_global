@@ -2,7 +2,5 @@
 .DS_Store
 *.pyc
 .*.swp
-tags
-ve
 *.sublime-*
 .idea
