@@ -57,10 +57,10 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
-	light = true
+	light = false
     features = line-numbers
 	whitespace-error-style = 22 reverse
-	syntax-theme = Solarized (light)
+	syntax-theme = Solarized (dark)
 	navigate = true
 [delta "decorations"]
 	commit-decoration-style = bold yellow box ul
