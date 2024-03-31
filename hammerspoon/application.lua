@@ -13,33 +13,16 @@ function application.hotkey(appName, mods, key, pressedFn)
         :subscribe(hs.window.filter.windowUnfocused, function() hotkey:disable() end)
 end
 
-application.hotkey("Mail", {"cmd"}, "r", function(app)
-    app:selectMenuItem({"Message", "Reply All"})
-end)
 application.hotkey("Safari", {"cmd"}, "q", function(app)
 end)
 application.hotkey("Firefox", {"cmd"}, "q", function(app)
 end)
-application.hotkey("Finder", {"cmd"}, "s", function(app)
-    local _, output, _ = hs.osascript.applescript([[tell application "Finder"
-    if (count windows) > 0 then
-        set currentDir to POSIX path of ((target of front Finder window) as text)
-    end if
-end tell]])
-    if output == nil then
-        return
-    end
-    hs.application.launchOrFocus("/Applications/iTerm.app")
-    hs.eventtap.keyStroke({"cmd"}, "t")
-    hs.eventtap.keyStrokes(" cd '" .. output .. "'")
-    hs.eventtap.keyStroke({}, "return")
-end)
 
-hyperHotkeyApps = {
+local hyperHotkeyApps = {
     {key = "i", path = "/Applications/iTerm.app"},
     {key = "r", path = "/Users/tony/Applications/StringerX.app"},
-    {key = "t", path = "/Applications/Tweetbot.app"},
-    {key = "m", path = "/System/Applications/Mail.app"},
+    {key = "t", path = "/Applications/Mona.app"},
+    {key = "m", path = "/Applications/FMail2.app"},
     {key = "f", path = "/System/Library/CoreServices/Finder.app"},
     {key = "e", path = "/Applications/Sublime Text.app"},
     {key = "u", path = "/Applications/Things3.app"},
