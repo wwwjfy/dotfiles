@@ -43,14 +43,9 @@ if [ ! -h "bin/stack" ]; then
     ln -s ~/dotfiles/lib/fish/stack/stack ~/bin/stack
 fi
 
-# vim
-if [[ ! -a ".vim" ]]; then
-    git clone --recursive https://github.com/wwwjfy/vimfiles .vim
-    cd .vim
-    git submodule update --init
-    cd $HOME
-    mkdir -p .config
-    ln -s $HOME/.vim .config/nvim
+# neovim
+if [[ ! -a ".config/nvim" ]]; then
+    git clone https://github.com/wwwjfy/vimfiles .config/nvim
 fi
 
 if [[ ! -a ".vimrc" ]]; then
