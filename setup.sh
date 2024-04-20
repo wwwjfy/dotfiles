@@ -53,10 +53,6 @@ if [[ ! -a ".config/kitty" ]]; then
     ln -s $HOME/dotfiles/kitty .config/kitty
 fi
 
-if [[ ! -a ".vimrc" ]]; then
-    ln -s .vim/vimrc .vimrc
-fi
-
 # configuration files
 link_file tmux.conf
 link_file gitconfig
