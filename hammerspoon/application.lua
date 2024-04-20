@@ -19,7 +19,7 @@ application.hotkey("Firefox", {"cmd"}, "q", function(app)
 end)
 
 local hyperHotkeyApps = {
-    {key = "i", path = "/Applications/iTerm.app"},
+    {key = "i", path = "/Applications/kitty.app"},
     {key = "r", path = "/Users/tony/Applications/StringerX.app"},
     {key = "t", path = "/Applications/Mona.app"},
     {key = "m", path = "/Applications/FMail2.app"},

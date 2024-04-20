@@ -7,7 +7,7 @@ end
 # Environment {{{
 set -p PATH /usr/local/sbin /usr/local/bin
 if test (uname) = "Darwin"
-    set -p PATH /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/ruby/bin
+    set -p PATH (brew --prefix)/opt/coreutils/libexec/gnubin (brew --prefix)/opt/ruby/bin
     set -gx GOROOT (brew --prefix go)/libexec
     set -gx GOPATH $HOME/go
 end
@@ -20,7 +20,7 @@ if which gem > /dev/null
 end
 set -p PATH $HOME/bin
 set -p PATH node_modules/.bin
-set -gx NODE_PATH /usr/local/lib/node_modules $NODE_PATH
+set -gx NODE_PATH (brew --prefix)/lib/node_modules $NODE_PATH
 if test -f /usr/libexec/java_home
     set -gx JAVA_HOME (/usr/libexec/java_home)
     set -p PATH $JAVA_HOME/bin
@@ -123,9 +123,6 @@ alias lla='ls -lha'
 alias cp='cp -i'
 alias mv='mv -i'
 alias grep='grep --color=auto'
-if test (uname) = "Darwin"
-    alias find='gfind'
-end
 alias v='vim -p'
 alias v-='vim -'
 alias ...='cd ../..'
