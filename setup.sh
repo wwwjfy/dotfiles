@@ -48,6 +48,11 @@ if [[ ! -a ".config/nvim" ]]; then
     git clone https://github.com/wwwjfy/vimfiles .config/nvim
 fi
 
+# kitty
+if [[ ! -a ".config/kitty" ]]; then
+    ln -s $HOME/dotfiles/kitty .config/kitty
+fi
+
 if [[ ! -a ".vimrc" ]]; then
     ln -s .vim/vimrc .vimrc
 fi
