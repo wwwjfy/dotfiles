@@ -44,9 +44,11 @@
 [gpg]
 	program = gpg
 [diff]
+	tool = difftastic
+	external = difft
 	noprefix = true
-[protocol]
-	version = 2
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
 [pull]
 	ff = only
 [pager]
@@ -54,6 +56,7 @@
     log = delta
     reflog = delta
     show = delta
+	difftool = true
 [interactive]
     diffFilter = delta --color-only
 [delta]
