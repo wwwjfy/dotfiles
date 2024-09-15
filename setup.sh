@@ -99,7 +99,7 @@ if [[ `users` != "vagrant" ]]; then
 fi
 
 if which lsb_release; then
-    if [[ $(lsb_release -i) =~ "Ubuntu" ]]; then
+    if [[ $(lsb_release -i 2>/dev/null) =~ "Ubuntu" ]]; then
         sudo apt-get update
         sudo apt-get install -y software-properties-common aptitude mercurial mosh fail2ban silversearcher-ag tree htop libevent-dev libncurses5-dev build-essential neovim
         if [[ ! $(grep tony /etc/passwd) =~ "fish" ]]; then

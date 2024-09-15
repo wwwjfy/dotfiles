@@ -10,6 +10,7 @@ if test (uname) = "Darwin"
     set -p PATH (brew --prefix)/opt/coreutils/libexec/gnubin (brew --prefix)/opt/ruby/bin
     set -gx GOROOT (brew --prefix go)/libexec
     set -gx GOPATH $HOME/go
+    set -gx NODE_PATH (brew --prefix)/lib/node_modules $NODE_PATH
 end
 if which gem > /dev/null
     for path in (gem environment gempath | tr ':' '\n')
@@ -20,7 +21,6 @@ if which gem > /dev/null
 end
 set -p PATH $HOME/bin
 set -p PATH node_modules/.bin
-set -gx NODE_PATH (brew --prefix)/lib/node_modules $NODE_PATH
 if test -f /usr/libexec/java_home
     set -gx JAVA_HOME (/usr/libexec/java_home)
     set -p PATH $JAVA_HOME/bin
