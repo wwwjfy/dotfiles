@@ -5,7 +5,7 @@ end
 . $HOME/dotfiles/lib/fish/z.py/z.fish
 
 # Environment {{{
-set -p PATH /usr/local/sbin /usr/local/bin
+set -p PATH /usr/local/sbin /usr/local/bin /opt/homebrew/bin /opt/homebrew/sbin
 if test (uname) = "Darwin"
     set -p PATH (brew --prefix)/opt/coreutils/libexec/gnubin (brew --prefix)/opt/ruby/bin
     set -gx GOROOT (brew --prefix go)/libexec
