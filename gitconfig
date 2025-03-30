@@ -21,8 +21,10 @@
 	default = upstream
 	recurseSubmodules = check
 	autoSetupRemote = true
+	followTags = true
 [core]
 	excludesfile = ~/.gitignore_global
+	untrackedCache = true
 [log]
 	decorate = true
 [color]
@@ -47,6 +49,7 @@
 	tool = difftastic
 	external = difft
 	noprefix = true
+	algorithm = histogram
 [difftool "difftastic"]
     cmd = difft "$LOCAL" "$REMOTE"
 [pull]
@@ -71,4 +74,11 @@
 	file-style = bold yellow ul
 	file-decoration-style = none
 [merge]
-	conflictstyle = diff3
+	conflictstyle = zdiff3
+[tag]
+	sort = version:refname
+[fetch]
+	prune = true
+	all = true
+[help]
+	autocorrect = prompt
